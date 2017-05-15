@@ -53,31 +53,6 @@ $(document).ready(function(){
             window.location=LinkSearchBook+"?bookName="+inputValue;
        });
     });
-    $('.delete-user-employer').on('click', function(e){
-        e.preventDefault();
-        swal({
-            title: "¿Estás seguro?",
-            text: "Vas a eliminar al empleado y no podrá acceder más al sistema",
-            type: "input",
-            showCancelButton: true,
-            confirmButtonColor: "#5cb85c",
-            confirmButtonText: "Si, eliminar",
-            cancelButtonText: "No, cancelar",
-            animation: "slide-from-top",
-            closeOnConfirm: false,
-            inputPlaceholder: "Escriba la contraseña del administrador para concluir"
-        },
-        function(inputValue){
-            if (inputValue === false) return false;
-            
-            if (inputValue === "") {
-                swal.showInputError("La contraseña no puede estar vacia!");
-                return false
-            }
-            
-            swal("Correcto!", "El empleado se ha eliminado correctamente del sistema", "success");
-        });  
-    });    
     $('.btn-help').on('click', function(){
         $('#ModalHelp').modal({
             show: true,
