@@ -1,0 +1,123 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------
+%========================================================
+%Proceso Actualizar datos de un Alumno
+%========================================================
+
+%========================================================
+% DescripciÃ³n general del proceso
+%-----------------------------------------------
+\begin{Proceso}{P4.6}{Descartar libros } {
+  
+  %-------------------------------------------
+  %Resumen
+
+  Proceso que realiza el \cdtRef{Actor:Bibliotecario}{Bibliotecario} con la finalidad de llevar a cabo el descarte de libros por diversas razones al final de su vida util o por defectos que conlleva a dar de baja un libro del inventario.
+  Se reúnen los libros que se encuentren en algún estado de los siguientes:
+  -obsolescencia.
+  -falta de uso.
+  -contaminación y/o mutilación.
+Despues se informa a la oficina de recursos materiales del ipn el problema de libros con eso recibe un formato de la oficina de recursos el cual contiene nombre título autores edición y motivo de descarte por cada isbn se necesita llenar el formato anterior.
+Despues los libros se guardan en una caja y se envían junto con su formato pegado en la caja a recursos materiales del ipn con ello la biblioteca  es informada mediante un acuse de recibo que los libros han sido entregados satisfactoriamente.
+
+
+
+  %-------------------------------------------
+  %Diagrama del proceso
+
+  \noindent La Figura \cdtRefImg{P4.6}{Descartar libros} muestra las actividades que se realizan para llevar a cabo el proceso descrito anteriormente.
+
+  \Pfig[0.95]{./images/procesos/GU4_6Descartar.png}{P4.6}{Descartar libros}
+
+} {P4.6:Realizar Descarte de libros}
+
+  %-------------------------------------------
+  %Elementos del proceso
+
+  \UCitem{Actores} { %Actores
+    \cdtRef{Actor:Bibliotecario}{Bibliotecario} .
+  }
+
+  \UCitem{Objetivo} { %Objetivo
+	Descartar un libro para darlo de baja del sistema en el inventario.
+  }
+
+  \UCitem{Insumos de entrada} { %Insumos de entrada
+  	\begin{UClist}
+  		\UCli Recuperacion de los libros para descartar dependiendo de la informacion de el estado de los libros.
+     	
+    \end {UClist}
+  }
+  
+  \UCitem{Proveedores} { %Proveedores
+    Sistema
+  }
+
+  \UCitem{Productos de salida} { %Productos de salida
+    \begin{UClist}
+    
+      \UCli Acuse de recibido.
+      \UCli Libros dados de baja del sistema.
+  
+    \end{UClist}
+  }
+
+  \UCitem{Cliente} { %Cliente
+    \cdtRef{Actor:Bibliotecario}{Bibliotecario}
+  }
+
+  \UCitem{Mecanismo de medición} { %Mecanismo de mediciÃ³n
+  
+  }
+  \UCitem{Interrelación con otros procesos} { %InterrelaciÃ³n con otros procesos
+  }
+
+
+\end{Proceso}
+
+%========================================================
+%DescripciÃ³n de tareas
+%-----------------------------------------------
+\begin{PDescripcion}
+
+  %Actor: Aspirante
+  \Ppaso Encargado de biblioteca
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P4.6:Encargado}{Solicitar descarte de libros.}El encargado solicita iniciar el descarte de libros.
+	
+
+    \end{enumerate}
+    
+    
+      %Actor: SAEV2.0
+  \Ppaso Bibliotecario 
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P4.3:Bibliotecario}{.}Se revisa los estados de los libros que se pueden descartar por obsolescencia, falta de uso, contaminación y/o mutilación.
+
+      %Tarea b
+      \Ppaso[\itarea] \cdtLabelTask{T2-P4.3:Bibliotecario}{.}se reúnen los libros que se encuentren en algún estado anterior o que reúnan alguna de las características mencionadas anteriormente.
+      
+      %Tarea c
+      \Ppaso[\itarea] \cdtLabelTask{T3-P4.3:Bibliotecario}{.}se informa a la oficina de recursos materiales del ipn el problema de libros.
+
+      %Tarea d
+      \Ppaso[\itarea] \cdtLabelTask{T4-P4.3:Bibliotecario}{.}se recibe un formato de la oficina de recursos el cual contiene nombre título autores edición y motivo de descarte.
+      
+      
+      %Tarea e
+      \Ppaso[\itarea] \cdtLabelTask{T5-P4.3:Bibliotecario}{.}los libros se guardaran en una caja y se envían junto con su formato pegado en la caja a recursos materiales del ipn.
+
+      %Tarea f
+      \Ppaso[\itarea] \cdtLabelTask{T3-P4.3:Bibliotecario}{.}el bibliotecario  es informado mediante un acuse de recibo que los libros han sido entregados satisfactoriamente.
+      
+          \end{enumerate}
+
+\end{PDescripcion}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------

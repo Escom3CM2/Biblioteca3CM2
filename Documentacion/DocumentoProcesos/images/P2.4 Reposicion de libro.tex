@@ -1,0 +1,116 @@
+%========================================================
+%Proceso
+%========================================================
+
+%========================================================
+% Descripción general del proceso
+%-----------------------------------------------
+\begin{Proceso}{P0.1}{Reposición de libro} {
+  
+  %-------------------------------------------
+  %Resumen
+
+  Proceso que realiza el \cdtRef{Actor:Aspirante}{Aspirante} cuando un libro que le ha sido prestado previamente está perdido.
+  
+  Al darse esta situación, el \cdtRef{Actor:SAEV2.0}{SAEV2.0} cancela el privilegio de préstamo al \cdtRef{Actor:Aspirante}{Aspirante} , etiqueta el libro en cuestión como perdido y envía una notificación de prórroga al \cdtRef{Actor:Aspirante}{Aspirante} para poder recuperar el libro, de ser así el proceso termina, de no ser así, el \cdtRef{Actor:Aspirante}{Aspirante} tiene dos opciones, el reemplazo físico del libro en cuestión o bien, el pago del precio del libro, en caso de que decida reemplazar el libro, el \cdtRef{Actor:SAEV2.0}{SAEV2.0} quita la etiqueta de perdido del libro en cuestion, si en cambio desea pagar el precio del libro, entonces el \cdtRef{Actor:SAEV2.0}{SAEV2.0} quita la etiqueta de perdido del libro y además lo pone en una lista de libros a adquirir.
+
+
+  %-------------------------------------------
+  %Diagrama del proceso
+
+  \noindent La Figura \cdtRefImg{P0.1}{Solicitud de cuenta} muestra las actividades que se realizan para llevar a cabo el proceso descrito anteriormente.
+
+  \Pfig[0.95]{.Biblioteca3CM2/Documentacion/DocumentoProcesos/procesos/Ejemplo/Images/procesoreposiciondelibros.png}{P0.1}{Solicitud de cuenta}
+
+} {P0.1:Cuenta}
+
+  %-------------------------------------------
+  %Elementos del proceso
+
+  \UCitem{Actores} { %Actores
+    \cdtRef{Actor:Aspirante}{Aspirante} y \cdtRef{Actor:SAEV2.0}{SAEV2.0}.
+  }
+
+  \UCitem{Objetivo} { %Objetivo
+    Que el \cdtRef{Actor:Aspirante}{Aspirante} realice la reposición de un libro perdido.
+  }
+
+  \UCitem{Insumos de entrada} { %Insumos de entrada
+  	\begin{UClist}
+  		\UCli N A
+    \end {UClist}
+  }
+  
+  \UCitem{Proveedores} { %Proveedores
+    \cdtRef{Actor:Aspirante}{Aspirante}
+  }
+
+  \UCitem{Productos de salida} { %Productos de salida
+    \begin{UClist}
+      \UCli Notificación
+    \end{UClist}
+  }
+
+  \UCitem{Cliente} { %Cliente
+    \cdtRef{Actor:Aspirante}{Aspirante}
+  }
+
+  \UCitem{Mecanismo de medición} { %Mecanismo de medición
+    \begin{UClist}
+      \UCli Un día hábil  de asignación PENDIENTE
+      \UCli Cuatro días  hábiles de evaluación
+    \end{UClist}
+  }
+  \UCitem{Interrelación con otros procesos} { %Interrelación con otros procesos
+    \begin{UClist}
+      \UCli PENDIENTE
+    \end {UClist}
+  }
+
+
+\end{Proceso}
+
+%========================================================
+%Descripción de tareas
+%-----------------------------------------------
+\begin{PDescripcion}
+
+  %Actor: Aspirante
+  \Ppaso Aspirante
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P0.1:Aspirante}{Reemplazar el libro.} El \cdtRef{Actor:Aspirante}{Aspirante} debe reemplazar el libro perdido con otro que sea exactamente el mismo ISBN y que esté en buenas condiciones.
+
+      %Tarea b
+      \Ppaso[\itarea] \cdtLabelTask{T1-P0.1:Aspirante}{Pagar el libro.} El \cdtRef{Actor:Aspirante}{Aspirante} debe pagar el precio exacto del libro.
+
+
+    \end{enumerate}
+
+  %Actor: SAEV2.0
+  \Ppaso SAEV2.0
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P0.1:SAEV2.0}{Cancela los privilegios de préstamo.} Le quita al \cdtRef{Actor:Aspirante}{Aspirante} los privilegios para poder pedir un libro prestado.
+
+      %Tarea b
+      \Ppaso[\itarea] \cdtLabelTask{T2-P0.1:SAEV2.0}{Etiquetar el libro como perdido} Pone la etiqueta de perdido en el campo de estado de la base de datos de los libros, para que se sepa que este se encuentra fuera de disponibilidad hasta que la reposicion se lleve a cabo, entonces sucede el siguiente evento:
+      \begin{itemize}
+    %Evento 1
+    \item Envía la notificación \cdtIdRef{MSJ0.2}{Usted tiene una prórroga de 3 dias hábiles para devolver el libro, de lo contrario deberá proceder a reemplazarlo}
+      \end{itemize}
+
+      %Tarea c
+      \Ppaso[\itarea] \cdtLabelTask{T3-P0.1:SAEV2.0}{Quita etiqueta de perdido} Quita la etiqueta de perdido del libro, volviendo esta etiqueta a ser disponible, para que se sepa que el libro está disponible para consulta o préstamo.
+
+      %Tarea d
+      \Ppaso[\itarea] \cdtLabelTask{T3-P0.1:SAEV2.0}{Reactiva los privilegios de préstamo} Le otorga al \cdtRef{Actor:Aspirante}{Aspirante} los privilegios para pedir un libro en préstamo.
+
+
+    \end{enumerate}
+
+\end{PDescripcion}
