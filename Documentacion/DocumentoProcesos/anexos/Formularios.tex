@@ -2,14 +2,16 @@
 \label{appendix:Formularios}
 
 %================EJEMPLO=========================================
-\subsection{F0.1 Solicitud de Cuenta }
-\cdtLabel{F0.1}{}
-  Formuario de solicitud de cuenta.\\
+\subsection{F4.1 Dar de alta Lector }
+\cdtLabel{F4.1}{}
+  Formuario de alta de Usuario.\\
 
 	\begin{UClist}
-      \UCli Nombre: Cadena de caracteres con el nombre del usuario.
-      \UCli Primer Apellido: Cadena de caracteres con el Primer Apellido del usuario.
-      \UCli Fecha de Nacimiento: Cadena de caracteres con la fecha de nacimiento del usuario, debe seguir el formato dd/mm/AAAA.
+      \UCli Id del Lector
+      \UCli Comprobante de estudios o acta de trabajador
+      \UCli Domicilio
+      \UCli Número telefónico
+      \UCli e-mail
     \end{UClist}
 
 %====================CELULA1=====================================
@@ -19,7 +21,36 @@
 
 %====================CELULA2=====================================
 %Introducir los correspondientes a la GESTIÓN DE INVENTARIO
+%% caso 2.1
+\subsection{F2.1 Petición de Libros}
+\cdtLabel{F2.1}{}
+Formuario de Petición de Libros.\\
 
+\begin{UClist}
+	\UCli ISBN
+	\UCli Título
+	\UCli Autor
+	\UCli Editorial
+	\UCli Unidades
+	\UCli Precio
+\end{UClist}
+
+
+\subsection{F2.2 Agregar Libros a Inventario}
+\cdtLabel{F2.2}{}
+
+\begin{UClist}
+	\UCli ISBN
+	\UCli ID
+\end{UClist}
+
+
+\subsection{F2.3 Agregar Equipo de Cómputo a Inventario}
+\cdtLabel{F2.3}{}
+
+\begin{UClist}
+	\UCli ID
+\end{UClist}
 
 
 %====================CELULA3=====================================
@@ -29,7 +60,17 @@
 
 %====================CELULA4=====================================
 %Introducir los correspondientes a la GESTIÓN DE USUARIOS
+\subsection{F4.2 Actualizar Lector }
+\cdtLabel{F4.2}{}
+  Formuario Actualización de lector.\\
 
+	\begin{UClist}
+      \UCli Id del Lector
+      \UCli Comprobante de estudios o acta de trabajador
+      \UCli Domicilio
+      \UCli Número telefónico
+      \UCli e-mail
+    \end{UClist}
 
 
 %====================CELULA5=====================================

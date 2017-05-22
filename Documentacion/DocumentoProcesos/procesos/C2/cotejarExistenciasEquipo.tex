@@ -1,0 +1,88 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------
+%========================================================
+%Proceso Actualizar datos de un Alumno
+%========================================================
+
+%========================================================
+% Descripción general del proceso
+%-----------------------------------------------
+\begin{Proceso}{P2.3}{Cotejar Existencia de Equipo} {
+  
+  %-------------------------------------------
+  %Resumen
+
+  Proceso que realiza el \cdtRef{Actor:Bibliotecario}{Bibliotecario} cada 20 de Diciembre con la finalidad de conocer el comparativo del equipo de cómputo, dedicado a préstamo, que se tiene en biblioteca  con el que debería haber de acuerdo al inventario final anterior o de acuerdo a la última entrada de equipo.
+  
+  El \cdtRef{Actor:Bibliotecario}{Bibliotecario} procede a cerrar la biblioteca para limpiar los equipos y obtener su código e introducirlo en el sistema donde se crea un formato de inventario con los códigos.  Éste formato se envía al sistema interno del IPN donde se realiza el comparativo y se devuelve el oficio con las diferencias de inventario.
+  
+  Se identifican los equipos que están reportados como faltantes y se verifica si está en almacén, de ser así se agrega como parte del inventario y en caso contrario se cambia el estado del equipo a extraviado.
+  
+  %-------------------------------------------
+  %Diagrama del proceso
+  \noindent La Figura \cdtRefImg{P2.3}{Cotejar Existencia de Equipo} muestra las actividades que se realizan para llevar a cabo el proceso descrito anteriormente.
+
+  \Pfig[1.0]{./procesos/C2/Images/cotejarExistenciasEquipo.png}{P2.3}{Cotejar Existencia de Equipo}
+
+} {P2.3:Cotejar Existencia de Equipo}
+
+  %-------------------------------------------
+  %Elementos del proceso
+  \UCitem{Actores} { %Actores
+    \cdtRef{Actor:Bibliotecario}{Bibliotecario} y 
+    \cdtRef{Actor:Lector}{Lector}
+  }
+
+  \UCitem{Objetivo} { %Objetivo
+    Comparar la existencia del equipo de cómputo en biblioteca con el inventario anterior.
+  }
+
+  \UCitem{Insumos de entrada} { %Insumos de entrada
+  	\begin{UClist}
+  		\UCli Identificadores del equipo de cómputo proporcionados por el \cdtRef{Actor:Bibliotecario}{Bibliotecario} en el formulario \cdtIdRef{F2.3}{Agregar Equipo de Cómputo a Inventario}. 
+    \end {UClist}
+  }
+  
+  \UCitem{Proveedores} { %Proveedores
+    \cdtRef{Actor:Bibliotecario}{Bibliotecario}
+  }
+
+  \UCitem{Productos de salida} { %Productos de salida
+    \begin{UClist}
+		\UCli	Actualización del estado del equipo de cómputo.
+    \end{UClist}
+  }
+
+  \UCitem{Cliente} { %Cliente
+    \cdtRef{Actor:Bibliotecario}{Bibliotecario}
+  }
+
+  \UCitem{Mecanismo de medición} { %Mecanismo de medición
+    \begin{UClist}
+      \UCli Respuesta inmediata
+    \end{UClist}
+  }
+  \UCitem{Interrelación con otros procesos} { %InterrelaciÃ³n con otros procesos
+  }
+
+
+\end{Proceso}
+%========================================================
+%DescripciÃ³n de tareas
+%-----------------------------------------------
+\begin{PDescripcion}
+
+  \Ppaso Bibliotecario
+	\begin{enumerate}
+		\Ppaso[\itarea] \cdtLabelTask{T1-P2.2:Bibliotecario}{Entradas de Identificadores} El \cdtRef{Actor:Bibliotecario}{Bibliotecario} cierra la biblioteca y comienza el proceso de inventario introduciendo los identificadores del equipo de cómputo en el sistema.
+		
+		\Ppaso[\itarea] \cdtLabelTask{T2-P2.2:Bibliotecario}{Envío y Recepción de Comparativo} El \cdtRef{Actor:Bibliotecario}{Bibliotecario} envía al servidor interno del instituto el reporte de los equipos de los que se han introducido su identificador. Recibe como respuesta la lista de equipos faltantes.
+		
+		\Ppaso[\itarea] \cdtLabelTask{T3-P2.2:Bibliotecario}{Identificación de Equipos Faltantes} El \cdtRef{Actor:Bibliotecario}{Bibliotecario} consulta a almacen los equipos faltantes. Si se encuentran se agrega al inventario, de lo contrario se reporta como perdido.
+	\end{enumerate}
+%%		\cdtRefTask{T2-P4.3:Bibliotecario}{Autentificar Lector.}	
+\end{PDescripcion}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+
+

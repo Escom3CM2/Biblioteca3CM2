@@ -1,0 +1,92 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------
+%========================================================
+%Proceso Actualizar datos de un Alumno
+%========================================================
+
+%========================================================
+% Descripción general del proceso
+%-----------------------------------------------
+\begin{Proceso}{P2.2}{Cotejar Existencia de Libros} {
+  
+  %-------------------------------------------
+  %Resumen
+
+  Proceso que realiza el \cdtRef{Actor:Bibliotecario}{Bibliotecario} cada semestre con la finalidad de conocer el comparativo de los libros físicos que se tienen en biblioteca con los libros que debería haber de acuerdo al inventario final anterior o de acuerdo a la última entrada de ejemplares.
+  
+  El \cdtRef{Actor:Bibliotecario}{Bibliotecario} procede a cerrar la biblioteca para limpiar los libros y revisar su estado físico, obtener su código e introducirlo en el sistema donde se crea un formato de inventario con los códigos.  Éste formato se envía al sistema interno del IPN donde se realiza el comparativo y se devuelve el oficio con las diferencias de inventario.
+  
+  Se identifican los libros que están reportados como faltantes y se verifica si un alumno posee el libro, de ser así se agrega como parte del inventario y en caso contrario se cambia el estado del libro a extraviado.
+  
+  %-------------------------------------------
+  %Diagrama del proceso
+  \noindent La Figura \cdtRefImg{P2.2}{Cotejar Existencia de Libros} muestra las actividades que se realizan para llevar a cabo el proceso descrito anteriormente.
+
+  \Pfig[1.0]{./procesos/C2/Images/cotejarExistencias.png}{P2.2}{Cotejar Existencia de Libros}
+
+} {P2.2:Cotejar Existencia de Libros}
+
+  %-------------------------------------------
+  %Elementos del proceso
+  \UCitem{Actores} { %Actores
+    \cdtRef{Actor:Bibliotecario}{Bibliotecario} y 
+    \cdtRef{Actor:Lector}{Lector}
+  }
+
+  \UCitem{Objetivo} { %Objetivo
+    Comparar la existencia de libros en biblioteca con el inventario anterior.
+  }
+
+  \UCitem{Insumos de entrada} { %Insumos de entrada
+  	\begin{UClist}
+  		\UCli Identificadores de libros proporcionados por el \cdtRef{Actor:Bibliotecario}{Bibliotecario} en el formulario \cdtIdRef{F2.2}{Agregar Libros a Inventario}. 
+     	
+    \end {UClist}
+  }
+  
+  \UCitem{Proveedores} { %Proveedores
+    \cdtRef{Actor:Bibliotecario}{Bibliotecario}
+  }
+
+  \UCitem{Productos de salida} { %Productos de salida
+    \begin{UClist}
+		\UCli	Actualización del estado de los libros.
+    \end{UClist}
+  }
+
+  \UCitem{Cliente} { %Cliente
+    \cdtRef{Actor:Bibliotecario}{Bibliotecario}
+  }
+
+  \UCitem{Mecanismo de medición} { %Mecanismo de medición
+    \begin{UClist}
+      \UCli Respuesta inmediata
+    \end{UClist}
+  }
+  \UCitem{Interrelación con otros procesos} { %InterrelaciÃ³n con otros procesos
+  	    \begin{UClist}
+  	    	\UCli Préstamo
+  	    \end{UClist}
+  }
+
+
+\end{Proceso}
+%========================================================
+%DescripciÃ³n de tareas
+%-----------------------------------------------
+\begin{PDescripcion}
+
+  \Ppaso Bibliotecario
+	\begin{enumerate}
+		\Ppaso[\itarea] \cdtLabelTask{T1-P2.2:Bibliotecario}{Entradas de Identificadores} El \cdtRef{Actor:Bibliotecario}{Bibliotecario} cierra la biblioteca y comienza el proceso de inventario introduciendo los identificadores de los libros en el sistema.
+		
+		\Ppaso[\itarea] \cdtLabelTask{T2-P2.2:Bibliotecario}{Envío y Recepción de Comparativo} El \cdtRef{Actor:Bibliotecario}{Bibliotecario} envía al servidor interno del instituto el reporte de los libros de los que se han introducido su identificador. Recibe como respuesta la lista de libros faltantes.
+		
+		\Ppaso[\itarea] \cdtLabelTask{T3-P2.2:Bibliotecario}{Identificación de Libros Faltantes} El \cdtRef{Actor:Bibliotecario}{Bibliotecario} consulta a préstamos los libros faltantes. Si los posee un alumno el libro se agrega al inventario, de lo contrario se reporta como perdido.
+	\end{enumerate}
+%%		\cdtRefTask{T2-P4.3:Bibliotecario}{Autentificar Lector.}	
+\end{PDescripcion}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------------------
+
+
