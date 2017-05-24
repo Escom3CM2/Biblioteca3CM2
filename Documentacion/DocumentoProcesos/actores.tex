@@ -61,31 +61,113 @@ En el presente capítulo se definen los actores que participan en el sistema.
 
 
 %==============Procesos Técnicos=========================================
-\cdtLabel{Actor:Procesos Técnicos}{}
-\begin{Actor}{Aspirante}{}
+\cdtLabel{Actor:Procesos_T}{}
+\begin{Actor}{Procesos Técnicos}{}
 	\item[Área:] No aplica
 	\item[Responsabilidades:] \hspace{1pt}
 	\begin{itemize}
-		\item Crear su cuenta de usuario para poder acceder al SAEV2.0.
-		\item Llenar su solicitud  en tiempo y forma.
-		\item Realizar los pagos necesarios para la realización del tramite.
-		\item Presentar el examen del CENEVAL y el psicométrico.
-		\item Crear su cuenta de usuario en el sistema.
-		\item Realizar el registro de su solicitud de ingreso durante el periodo establecido.
-		\item Realizar el pago de derechos a exámenes.
-		\item Presentar los exámenes CENEVAL y psicométrico.
-		\item Seleccionar un horario para la entrevista
-		\item Acudir a la entrevista en la Escuela Libre de Derecho
-		\item Visualizar el resultado del proceso de admisión
-        \item Presentar la documentación necesaria para acreditar su persona y sus estudios.
-        \item Realizar su registro de cita para entrevista en caso de ser seleccionado.
-        \item Consultar el resultado del proceso de admisión a la ELD.
+		\item Comunicar a los encargados de departamentos Académicos el presupuesto que ha sido asignado por academia.
+		\item Reunir y agrupar información proviniente de cada una de las academias dónde se especifica que libros y/o material aaudiovisual junto con sus cantidades que deberán ser comprados.
+		\item Enviar a recursos materiales el oficio que informa los elementos y cantidades que han sido requeridos por cada una de las academias. 
+		\item Desempaquetar los productos recibidos y verificar que hayan sido recibidos la misma cantidad y tipo de productos que fueron enviados previamente de recursos materiales
+		\item Separar los productos por tipo para después darlos de alta en el sistema.
+		\item Dar de alta los productos en el sistema y etiquetarlos con su respectivo identificador.
+		\item Poner sello a los productos y forrar en caso de ser necesario.
+		\item Poner los productos que se acaban de dar de alta en el estante adecuado.
+		\item Limpiar y Revisar que los libros, material audiovisual y equipo de cómputo se encuentren en buenas condiciones.
+		\item Escanear código de barras de elementos dados de alta en el sistema.
+		\item Enviar oficio al servidor del Politécnico con la información registrada al escanear los productos.
+		\item Revisar el oficio recibido de parte del servidor del Politécnico para verificar aquellas anormalidades en el inventario
 	\end{itemize}
 	\item[Perfil:] \hspace{1pt}
 	\begin{itemize}
-		\item Debe ser un egresado o estar cursando el último año de nivel medio superior. 
-		\item Debe ser capaz de trabajar bajo presión.
-		\item Debe contar con facilidad de palabra.
-		\item Debe ser responsable.		
+		\item Haber sido contratado por la jefa del área de Biblioteca.
+		\item Haber tenido capacitación para poder realizar etiquetado y sellado de libros.
+		\item Tener conocimiento de los procesos implicados a su cargo.
+		\item Tener conocimientos básicos de computación.
+		\item Debe ser responsable.	
+		\item Revisar el estado del libro, material audiovisual y equipo de cómputo.	
 	\end{itemize}
 \end{Actor}
+
+%==============Jefe de Academia=========================================
+\cdtLabel{Actor:Jefe_A}{}
+\begin{Actor}{Jefe de Academia}{}
+	\item[Área:] No aplica
+	\item[Responsabilidades:] \hspace{1pt}
+	\begin{itemize}
+		\item Evaluar el presupuesto aceptado para comprar los libros y/o material audiovisual pertinentes.
+		\item Informar a los maestros para que realicen envío de propuestas de libros y/o material audiovisual a ser considerados como posibles compras.
+		\item Recibir y Evaluar las propuestas de los maestros seleccionando los elementos de mayor importancia de acuerdo al presupuesto permitido, después seleccionar las cantidades para las cuales ha sido aprobado el presupuesto.
+		\item Enviar oficio a Procesos Técnicos con los elementos aprobados y sus cantidades respectivas verificando que no excedan del presupuesto asignado.
+	\end{itemize}
+	\item[Perfil:] \hspace{1pt}
+	\begin{itemize}
+		\item Haber sido aceptado como jefe de academia.
+	\end{itemize}
+\end{Actor}
+
+%==============Recursos Materiales=========================================
+\cdtLabel{Actor:Recursos_M}{}
+\begin{Actor}{Recursos Materiales}{}
+	\item[Área:] No aplica
+	\item[Responsabilidades:] \hspace{1pt}
+	\begin{itemize}
+		\item Recibir el oficio de libros y cantidades de los mismos a comprar.
+		\item Cotizar con los proveedores el mejor precio posible al momento de comprar los libros.
+		\item Hacer el pago de libros.
+		\item Acordar fecha y hora de entrega de los libros.
+		\item Enviar los libros recien adquiridso al encargado de procesos técnicos junto con su recibo de compra, resaltando las cantidades por cada libro que fueron adquiridos.
+	\end{itemize}
+	\item[Perfil:] \hspace{1pt}
+	\begin{itemize}
+		\item Haber sido aceptado como jefe de Recursos Materiales.
+	\end{itemize}
+\end{Actor}
+
+%==============Maestro=========================================
+\cdtLabel{Actor:Maestro}{}
+\begin{Actor}{Maestro}{}
+	\item[Área:] No aplica
+	\item[Responsabilidades:] \hspace{1pt}
+	\begin{itemize}
+		\item Enviar sugerencias de libros a ser comprados al jefe de academia, considerando los pertinentes segun su experiencia y necesidades.
+	\end{itemize}
+	\item[Perfil:] \hspace{1pt}
+	\begin{itemize}
+		\item Tener la plaza de maestro en la institución.
+	\end{itemize}
+\end{Actor}
+
+%===============Proveedor========================================
+\cdtLabel{Actor:Proveedor}{}
+\begin{Actor}{Proveedor}{}
+	\item[Área:] No aplica
+	\item[Responsabilidades:] \hspace{1pt}
+	\begin{itemize}
+		\item Enviar cotizaciones de los libros a surtir.
+		\item Generar Factura de cobro por el monto total de los libros a ser comprados.
+		\item Generar comprobante de pago una vez que se efectuó la compra.
+		\item Enviar los libros o material que haya sido comprado dentro de la fecha y horario acordado al momento de la compra.
+	\end{itemize}
+	\item[Perfil:] \hspace{1pt}
+	\begin{itemize}
+		\item Tener el permiso legal para  vender los libros.
+		\item Manejar precios adecuados para realizar el trato.
+	\end{itemize}
+\end{Actor}
+
+%===============Servidor Politécnico========================================
+\cdtLabel{Actor:Servidor_P}{}
+\begin{Actor}{Servidor del IPN}{}
+	\item[Área:] No aplica
+	\item[Responsabilidades:] \hspace{1pt}
+	\begin{itemize}
+		\item Procesar oficio de control de inventario y destacar anormalidades en este, es decir faltante de algún producto.
+	\end{itemize}
+	\item[Perfil:] \hspace{1pt}
+	\begin{itemize}
+		\item --
+	\end{itemize}
+\end{Actor}
+

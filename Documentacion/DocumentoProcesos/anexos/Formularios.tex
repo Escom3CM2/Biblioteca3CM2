@@ -22,9 +22,19 @@
 %====================CELULA2=====================================
 %Introducir los correspondientes a la GESTIÓN DE INVENTARIO
 %% caso 2.1
-\subsection{F2.1 Petición de Libros}
+\subsection{F2.1 Presupuesto Aceptado}
 \cdtLabel{F2.1}{}
-Formuario de Petición de Libros.\\
+Formuario de Presupuesto aceptado para el jefe de academia.\\
+
+\begin{UClist}
+	\UCli Nombre jefe de Academia
+	\UCli Presupuesto para la academia
+	\UCli Fecha de regreso para los elementos a comprar
+\end{UClist}
+
+\subsection{F2.1 Selección de Libros y/o material audiovisual}
+\cdtLabel{F2.2}{}
+Formuario de selección de libros a comprar por parte de los jefes de academia.\\
 
 \begin{UClist}
 	\UCli ISBN
@@ -35,22 +45,34 @@ Formuario de Petición de Libros.\\
 	\UCli Precio
 \end{UClist}
 
-
-\subsection{F2.2 Agregar Libros a Inventario}
-\cdtLabel{F2.2}{}
+\subsection{F2.3 Selección de Libros y/o material audiovisual}
+\cdtLabel{F2.3}{}
+Formuario de selección de libros a comprar para recursos materiales.\\
 
 \begin{UClist}
 	\UCli ISBN
-	\UCli ID
+	\UCli Título
+	\UCli Autor
+	\UCli Editorial
+	\UCli Unidades
+	\UCli Precio
+	\UCli Asignatura o Academia para el que es requerido
 \end{UClist}
 
 
-\subsection{F2.3 Agregar Equipo de Cómputo a Inventario}
-\cdtLabel{F2.3}{}
+\subsection{F2.4 Lista de Material a Surtir}
+\cdtLabel{F2.4}{}
+Formuario de selección de libros a surtir por parte del proveedor que envia Recursos materiales.\\
 
 \begin{UClist}
-	\UCli ID
+	\UCli ISBN
+	\UCli Título
+	\UCli Autor
+	\UCli Editorial
+	\UCli Unidades
 \end{UClist}
+
+
 
 
 %====================CELULA3=====================================
