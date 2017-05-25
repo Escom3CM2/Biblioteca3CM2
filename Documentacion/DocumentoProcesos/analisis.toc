@@ -8,26 +8,31 @@
 \contentsline {subsection}{\numberline {1.2.1}Resumen}{6}{subsection.1.2.1}
 \contentsline {subsection}{\numberline {1.2.2}Elementos del proceso}{8}{subsection.1.2.2}
 \contentsline {subsection}{\numberline {1.2.3}Descripci\IeC {\'o}n de Tareas}{8}{subsection.1.2.3}
-\contentsline {section}{\numberline {1.3}P2.2 Cotejar Existencia de Libros}{9}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Resumen}{9}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Elementos del proceso}{9}{subsection.1.3.2}
-\contentsline {subsection}{\numberline {1.3.3}Descripci\IeC {\'o}n de Tareas}{10}{subsection.1.3.3}
-\contentsline {section}{\numberline {1.4}P2.3 Cotejar Existencia de Equipo}{11}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Resumen}{11}{subsection.1.4.1}
-\contentsline {subsection}{\numberline {1.4.2}Elementos del proceso}{11}{subsection.1.4.2}
-\contentsline {subsection}{\numberline {1.4.3}Descripci\IeC {\'o}n de Tareas}{12}{subsection.1.4.3}
-\contentsline {section}{\numberline {1.5}P2.4 Descartar libros }{13}{section.1.5}
-\contentsline {subsection}{\numberline {1.5.1}Resumen}{13}{subsection.1.5.1}
-\contentsline {subsection}{\numberline {1.5.2}Elementos del proceso}{13}{subsection.1.5.2}
-\contentsline {subsection}{\numberline {1.5.3}Descripci\IeC {\'o}n de Tareas}{14}{subsection.1.5.3}
-\contentsline {chapter}{\numberline {2}Actores del sistema}{17}{chapter.2}
-\contentsline {chapter}{\numberline {A}Mensajes}{23}{appendix.Alph1}
-\contentsline {subsection}{\numberline {A.0.1}MSJ0.1 Activaci\IeC {\'o}n de cuenta }{23}{subsection.Alph1.0.1}
-\contentsline {subsection}{\numberline {A.0.2}MSJ0.2 Operacion Exitosa }{23}{subsection.Alph1.0.2}
-\contentsline {chapter}{\numberline {B}Formularios}{25}{appendix.Alph2}
-\contentsline {subsection}{\numberline {B.0.1}F4.1 Dar de alta Lector }{25}{subsection.Alph2.0.1}
-\contentsline {subsection}{\numberline {B.0.2}F2.1 Presupuesto Aceptado}{25}{subsection.Alph2.0.2}
-\contentsline {subsection}{\numberline {B.0.3}F2.1 Selecci\IeC {\'o}n de Libros y/o material audiovisual}{25}{subsection.Alph2.0.3}
-\contentsline {subsection}{\numberline {B.0.4}F2.3 Selecci\IeC {\'o}n de Libros y/o material audiovisual}{26}{subsection.Alph2.0.4}
-\contentsline {subsection}{\numberline {B.0.5}F2.4 Lista de Material a Surtir}{26}{subsection.Alph2.0.5}
-\contentsline {subsection}{\numberline {B.0.6}F4.2 Actualizar Lector }{26}{subsection.Alph2.0.6}
+\contentsline {section}{\numberline {1.3}P2.2 Cotejar Existencia de Material}{10}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Resumen}{10}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Elementos del proceso}{10}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Descripci\IeC {\'o}n de Tareas}{11}{subsection.1.3.3}
+\contentsline {chapter}{\numberline {2}Actores del sistema}{13}{chapter.2}
+\contentsline {chapter}{\numberline {3}Glosario de t\IeC {\'e}rminos}{19}{chapter.3}
+\contentsline {chapter}{\numberline {A}Condiciones}{21}{appendix.Alph1}
+\contentsline {subsection}{\numberline {A.0.1}C0.1 Alumno en baja }{21}{subsection.Alph1.0.1}
+\contentsline {subsection}{\numberline {A.0.2}C2.1 Cantidad total menor}{21}{subsection.Alph1.0.2}
+\contentsline {subsection}{\numberline {A.0.3}C2.2 Presupuesto suficiente}{21}{subsection.Alph1.0.3}
+\contentsline {chapter}{\numberline {B}Mensajes}{23}{appendix.Alph2}
+\contentsline {subsection}{\numberline {B.0.1}MSJ0.1 Activaci\IeC {\'o}n de cuenta }{23}{subsection.Alph2.0.1}
+\contentsline {subsection}{\numberline {B.0.2}MSJ0.2 Operacion Exitosa }{23}{subsection.Alph2.0.2}
+\contentsline {chapter}{\numberline {C}Formularios}{25}{appendix.Alph3}
+\contentsline {subsection}{\numberline {C.0.1}F4.1 Dar de alta Lector }{25}{subsection.Alph3.0.1}
+\contentsline {subsection}{\numberline {C.0.2}F2.1 Presupuesto Aceptado}{25}{subsection.Alph3.0.2}
+\contentsline {subsection}{\numberline {C.0.3}F2.1 Selecci\IeC {\'o}n de Libros y/o material audiovisual}{25}{subsection.Alph3.0.3}
+\contentsline {subsection}{\numberline {C.0.4}F2.3 Selecci\IeC {\'o}n de Libros y/o material audiovisual}{26}{subsection.Alph3.0.4}
+\contentsline {subsection}{\numberline {C.0.5}F2.4 Lista de Material a Surtir}{26}{subsection.Alph3.0.5}
+\contentsline {subsection}{\numberline {C.0.6}F2.5 Escanear Libros}{26}{subsection.Alph3.0.6}
+\contentsline {subsection}{\numberline {C.0.7}F2.6 Escanear Material Audiovisual}{26}{subsection.Alph3.0.7}
+\contentsline {subsection}{\numberline {C.0.8}F2.7 Escanear Equipo de C\IeC {\'o}mputo}{26}{subsection.Alph3.0.8}
+\contentsline {subsection}{\numberline {C.0.9}F4.2 Actualizar Lector }{26}{subsection.Alph3.0.9}
+\contentsline {chapter}{\numberline {D}Documentos}{27}{appendix.Alph4}
+\contentsline {subsection}{\numberline {D.0.1}D0.1 Credencial de Estudiante }{27}{subsection.Alph4.0.1}
+\contentsline {subsection}{\numberline {D.0.2}D2.1 Libros Escaneados}{27}{subsection.Alph4.0.2}
+\contentsline {subsection}{\numberline {D.0.3}D2.2 Material Audiovisual Escaneado}{28}{subsection.Alph4.0.3}
+\contentsline {subsection}{\numberline {D.0.4}D2.2 Equipo de C\IeC {\'o}mputo Escaneado}{28}{subsection.Alph4.0.4}

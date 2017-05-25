@@ -1,6 +1,5 @@
-%-----------------------------------------------------------------------------------------------------------------------------------------------
 %========================================================
-%Proceso Actualizar datos de un Alumno
+%Proceso
 %========================================================
 
 %========================================================
@@ -10,27 +9,27 @@
   
   %-------------------------------------------
   %Resumen
-
-  Proceso que realiza el encargado de \cdtRef{Actor:Procesos_T}{Procesos Técnicos} con la finalidad de obtener nuevos ejemplares de libros, equipo audiovisual o equipo de cómputo, que se requieren de acuerdo a las necesidades  de la biblioteca y sujeto al presupuesto establecido por Recursos Materiales del IPN.\vspace{5mm}
+Proceso que realiza el encargado de \cdtRef{Actor:Procesos_T}{Procesos Técnicos} con la finalidad de obtener nuevos ejemplares de libros, equipo audiovisual o equipo de cómputo, que se requieren de acuerdo a las necesidades  de la biblioteca y sujeto al presupuesto establecido por Recursos Materiales del IPN.\vspace{5mm}
   
 \textbf{Para adquisicón de libros y/o Material Audiovisual:} El encargado de \cdtRef{Actor:Procesos_T}{Procesos Técnicos} envía al \cdtRef{Actor:Jefe_A}{Jefe de Academia} de cada una de las asignaturas el presupuesto aprobado para cada una de las mismas, éste último se encarga de comunicar a el/los \cdtRef{Actor:Maestro}{Maestro(s)} tal situación para que lleven a cabo propuestas de libros y/o material audiovisual que posteriormente serán evaluadas de acuerdo a su nivel de importancia, una vez completadas todas las propuestas, se hará una selección de los mejores libros y/o material auidiovisual por parte del \cdtRef{Actor:Jefe_A}{Jefe de Academia}, la selección es enviada al encargado de \cdtRef{Actor:Procesos_T}{Procesos Técnicos} para que éste último organice la información y la agrupe, después de que ha sido agrupada, realiza el pedido a \cdtRef{Actor:Recursos_M}{Recursos Materiales} de la biblioteca. Al momento de que recursos materiales recibe la lista de libros y/o material audiovisual a comprar, evalua las posibilidades y cotiza con los provedores para cerciorarse de elegir la mejor opción; Envia al \cdtRef{Actor:Proveedor}{Proveedor} seleccionado la lista de los libros y/o material audiovisual a comprar, el proveedor recibe los productos y genera una factura por el monto a cubrir, recursos materiales efectua el pago y se genera un comprobante,se acuerda una fecha y hora para la entrega de los productos, recursos materiales verifica el pedido una vez que éste ha sido recibido y se envía a procesos técnicos, allí se lleva a cabo el proceso de registro y preparación de los libros y/o material audiovisual para su disponibilidad en biblioteca.
 \vspace{5mm}
 
 \textbf{Para adquisicón de equipo de cómputo y TT:} En ésta situación el encargado de \cdtRef{Actor:Procesos_T}{Procesos Técnicos} únicamente recibe el equipo de cómputo o TT a registrar, lo da de alta en el sistema y lo etiqueta para después acomodarlo en el lugar dónde sea necesario.
 
-  
   %-------------------------------------------
   %Diagrama del proceso
-  \newpage
+\newpage
   \noindent La Figura \cdtRefImg{P2.1}{Adquirir Libros y/o material audiovisual} muestra las actividades que se realizan para llevar a cabo el proceso descrito anteriormente.
 
   \Pfig[0.85]{./procesos/C2/Images/adquirirLibros.png}{P2.1}{Adquirir Libros y/o material audiovisual}
 
 } {P2.1:Adquirir Libros y/o material audiovisual}
 
+
   %-------------------------------------------
   %Elementos del proceso
-  \UCitem{Actores} { %Actores
+
+   \UCitem{Actores} { %Actores
 	\cdtRef{Actor:Procesos_T}{Procesos Técnicos},
 	\cdtRef{Actor:Jefe_A}{Jefe de Academia} ,
 	\cdtRef{Actor:Maestro}{Maestro},
@@ -47,7 +46,7 @@
   		\UCli Datos del Formulario \cdtIdRef{F2.1}{Presupuesto aceptado}. 
   		\UCli Datos del Formulario \cdtIdRef{F2.2}{Selección de Libros y/o material audiovisual}.
 		\UCli Datos del Formulario \cdtIdRef{F2.3}{Petición de Libros y/o material audiovisual}.
-		\UCli Datos del Formulario \cdtIdRef{F2.3}{Lista de Material a surtir}. 
+		\UCli Datos del Formulario \cdtIdRef{F2.4}{Lista de Material a surtir}. 
      	
     \end {UClist}
   }
@@ -82,22 +81,130 @@
 %-----------------------------------------------
 \begin{PDescripcion}
 
+  %Actor: Aspirante
   \Ppaso Procesos Técnicos
-	\begin{enumerate}
-		\Ppaso[\itarea] \cdtLabelTask{T1-P2.1:Procesos Técnicos}{Recepción de Presupuesto} El \cdtRef{Actor:Bibliotecario}{Bibliotecario} recibe el comunicado de Recursos Materiales sobre el presupuesto para comprar libros e informa a los jefes de académia.
-	\end{enumerate}
 
-	\begin{enumerate}
-		\Ppaso[\itarea] \cdtLabelTask{T2-P2.1:Bibliotecario}{Recepción de petición de Libros} El \cdtRef{Actor:Procesos_T}{Procesos Técnicos} recibe la lista con la petición de libros a pedir y junta en una sola lista.
-	\end{enumerate}
+    \begin{enumerate}
 
-	\begin{enumerate}
-		\Ppaso[\itarea] \cdtLabelTask{T3-P2.1:Bibliotecario}{Recepción de Libros} El \cdtRef{Actor:Bibliotecario}{Bibliotecario} recibe los ejemplares comprados por Recursos Materiales y verifica la entrega para proceder a la prepraración de los libros.
-	\end{enumerate}	
-%%		\cdtRefTask{T2-P4.3:Bibliotecario}{Autentificar Lector.}	
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T1-P2.1:Procesos_T}{Recepción de Presupuesto} El encargado de  \cdtRef{Actor:Procesos_T}{Procesos Técnicos} recibe el comunicado de \cdtRef{Actor:Recursos_M}{Recursos Materiales} sobre el presupuesto para comprar libros y/o material audiovisual e informa a los \cdtRef{Actor:Jefe_A}{Jefes de Academia} el presupuesto asignado a cada una de éstas. Para que pueda ser llevado a cabo necesita que suceda el siguiente evento:
+
+
+	%Eventos
+	\begin{itemize}
+	  %Evento 1
+	  \item Recibe un comunicado de aprobación del presupuesto asignado para cada una de las academias.	
+	\end{itemize}
+
+      %Tarea b
+      \Ppaso[\itarea] \cdtLabelTask{T2-P2.1:Procesos_T}{Recolectar información} Recolecta y agrupa la información enviada por los \cdtRef{Actor:Jefe_A}{Jefes de Academia}para posteriormente ser enviada a \cdtRef{Actor:Recursos_M}{Recursos Materiales} de la escuela para cotizaciones de compra. Para que pueda ser llevada a cabo la tarea necesita que suceda el siguiente evento:
+
+	%Eventos
+	\begin{itemize}
+	  %Evento 1
+	  \item Recibe el oficio \cdtIdRef{F2.2}{Selección de Libros y/o material audiovisual}. por parte de los \cdtRef{Actor:Jefe_A}{Jefes de Academia}.
+	  
+	\end{itemize}
+	
+	Una vez recibida la información se verifica la siguiente condición:
+	
+	\begin{itemize}
+	  %Evento 1
+	  \item \cdtIdRef{C2.1}{Cantidad total menor}, de lo contrario se regresará a la tarea 
+\cdtRefTask{T5-P2.1:Procesos_T}{Notifica Error en selección:}
+	\end{itemize}
+	
+	%%Tarea c
+	\Ppaso[\itarea] \cdtLabelTask{T3-P2.1:Procesos_T}{Verificar entrega:}Verifica que los libros recibidos por parte de \cdtRef{Actor:Recursos_M}{Recursos Materiales} sean los mismos que se pidieron y los del recibo de compra. El evento que espera esta tarea es el siguiente.
+	\begin{itemize}
+	  %Evento 1
+	  \item Recibe un comprobante de compra de libros y/o material audiovisual junto con los elementos comprados
+	 \end{itemize}
+	 
+	 %%Tarea d
+	\Ppaso[\itarea] \cdtLabelTask{T4-P2.1:Procesos_T}{Preparación de Material:}Prepara el material que recién se acaba de dar de alta para su uso dentro de la biblioteca, Desempaca los libros y/o material audiovisual y los da de alta en el sistema para posteriormente etiquetarlos..
+	
+	\begin{itemize}
+	  %Evento 1
+	  \item Desempaca los libros y/o material audiovisual y los da de alta en el sistema para posteriormente etiquetarlos.
+	  %Evento 2
+	  \item Pone sello a todos los libros
+	  %Evento 3	  
+	  \item Coloca etiqueta antirobo para cada producto  y forra en caso de ser necesario "sólo libros".
+	  %Evento 4
+	  \item Acomoda el material recien dado de alta en el lugar mas conveniente dentro de la biblioteca.
+	 \end{itemize}
+	 
+	 \Ppaso[\itarea] \cdtLabelTask{T5-P2.1:Procesos_T}{Notifica Error en selección:}Notifica personalmente al jefe de academia el error en su presupuesto para que pueda reanalizarlo.
+	
+
+    \end{enumerate}
+
+  %Actor: Jefe de Academia
+  \Ppaso Jefe de Academia
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T6-P2.1:Jefe_A}{Seleccionar Propuestas:} Recibe y analiza el presupuesto aceptado para su acedemía, despues analiza las propuestas de los \cdtRef{Actor:Maestro}{Maestros}  implicados en la misma y envía los libros seleccionados a conveniencia e importancia de la academia.
+
+
+    \end{enumerate}
+    
+     %Actor: Maestro
+  \Ppaso Maestro
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T7-P2.1:Maestro}{Enviar Propuestas:} Analiza en base a sus conocimientos y experiencia que libros son requeridos para cada una de las asignaturas impartidas por la academia. Para ejecutarse necesita el siguiente evento
+      \begin{itemize}
+      \item Recibir una notificación por parte del jefe de academía de realizar propuestas para libros de la asignatura dónde se especializa cada maestro.
+      \end{itemize}
+
+
+    \end{enumerate}
+    
+    \Ppaso Recursos Materiales
+
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T8-P2.1:Maestro}{Comprar selección:} Recibe el oficio \cdtIdRef{F2.3}{Petición de Libros y/o material audiovisual} para despues analizarlo y contactar al proveedor de preferencia, el evento necesario para que se realice esta tarea es:
+      \begin{itemize}
+      \item Recibir el oficio \cdtIdRef{F2.3}{Petición de Libros y/o material audiovisual}.
+      \end{itemize}
+ 
+ Despues contacta al proveedor para su compra, antes de realizar la compra se verifica la condición
+ 
+ \begin{itemize}
+	  %Evento 1
+	  \item \cdtIdRef{C2.2}{Presupuesto suficiente}, de lo contrario se pasará a la tarea 
+\cdtRefTask{T9-P2.1:Recursos_M}{Cambiar de Proveedor:}
+	\end{itemize}
+	
+\Ppaso[\itarea] \cdtLabelTask{T9-P2.1:Recursos_M}{Cambiar de Proveedor:} Busca un nuevo proveedor para realizar el trato.
+ 
+
+    \end{enumerate}
+    
+    
+    
+    \Ppaso Proveedor
+    
+    \begin{enumerate}
+
+      %Tarea a
+      \Ppaso[\itarea] \cdtLabelTask{T10-P2.1:Proveedor}{Surtir Pedido:} Una vez recibida la lista de materiales que se desean surtir se envia la cotización de precio total. Se necesita el siguiente evento.
+      
+      \begin{itemize}
+      \item Recibir el oficio cdtIdRef{F2.3}{Lista de Material a surtir}.
+      \end{itemize}
+ 
+Después se necesita recibir el pago por el total del material solicitado, para posteriormente enviar los libros.
+
+ 
+
+    \end{enumerate}
+
 \end{PDescripcion}
-
-
-%------------------------------------------------------------------------------------------------------------------------------------------------
-
-
