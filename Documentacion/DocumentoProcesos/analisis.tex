@@ -98,7 +98,11 @@
     %\input{introduccion} % Introducción al contenido del documento
 
     %---------- Proceso de Admisión
-\chapter{Procesos} 
+
+	%======================EJEMPLO===================================
+	\chapter{Procesos}    
+    \input{procesos/Ejemplo/proceso} 		%PA2.1 Generación de cuenta 
+   
 
 %====================CELULA1=====================================
 %Introducir los correspondientes a la GESTIÓN DE EMPLEADOS
@@ -107,10 +111,8 @@
 
 %====================CELULA2=====================================
 %Introducir los correspondientes a la GESTIÓN DE INVENTARIO
-		\input{procesos/C2/adquirirLibros}
-		\input{procesos/C2/cotejarExistencias}
-		\input{procesos/C2/cotejarExistenciasEquipo}
-		\input{procesos/C2/Descarte}
+	 \input{procesos/C2/adquirirMaterial}
+	 \input{procesos/C2/cotejarExistencias}
 
 
 %====================CELULA3=====================================
@@ -120,12 +122,8 @@
 
 %====================CELULA4=====================================
 %Introducir los correspondientes a la GESTIÓN DE USUARIOS
-%		\input{procesos/C4/darDeAlta}		
-%		\input{procesos/C4/darDeBaja}
-%		\input{procesos/C4/ActualizarLector}
-%		\input{procesos/C4/consultar}
-		 %Consultar Usuario
 
+	
 
 %====================CELULA5=====================================
 %Introducir los correspondientes a la GESTIÓN DE CREDENCIALES
@@ -136,14 +134,16 @@
     %---------- Actores
     \input{actores} %Actores identificados y su descripción
 
+    %---------- Glosario
+    \input{glosario}
 
     %---------- Anexos
     \appendix
+    \cfinput{anexos/Condiciones} % Condiciones y Reglas de Negocio
     \cfinput{anexos/Mensajes} % Mensajes
     \cfinput{anexos/Formularios} % Formularios
-
+    \cfinput{anexos/Documentos} % Documentos
 
     \clossing
 
 \end{document}
-

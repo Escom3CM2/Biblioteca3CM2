@@ -6,50 +6,58 @@
 %========================================================
 % Descripción general del proceso
 %-----------------------------------------------
-\begin{Proceso}{P2.2}{Cotejar Existencia de Libros} {
+\begin{Proceso}{P2.2}{Cotejar Existencia de Material} {
   
   %-------------------------------------------
   %Resumen
 
-  Proceso que realiza el \cdtRef{Actor:Bibliotecario}{Bibliotecario} cada semestre con la finalidad de conocer el comparativo de los libros físicos que se tienen en biblioteca con los libros que debería haber de acuerdo al inventario final anterior o de acuerdo a la última entrada de ejemplares.
+  Proceso que realiza el  encargado de \cdtRef{Actor:Procesos_T}{Procesos Técnicos} cada año con la finalidad de conocer el comparativo de los libros físicos, material audiovisual y/o Equipo de Cómputo que se tienen en biblioteca con los materiales que debería haber de acuerdoa la última entrada de ejemplares "último estado de la base de datos".
   
-  El \cdtRef{Actor:Bibliotecario}{Bibliotecario} procede a cerrar la biblioteca para limpiar los libros y revisar su estado físico, obtener su código e introducirlo en el sistema donde se crea un formato de inventario con los códigos.  Éste formato se envía al sistema interno del IPN donde se realiza el comparativo y se devuelve el oficio con las diferencias de inventario.
+  El encargado de \cdtRef{Actor:Procesos_T}{Procesos Técnicos} procede a cerrar la biblioteca para limpiar los materiales que desee inventariar, estos pueden ser material audiovisual, libros o equipo de cómputo y revisar su estado físico,para después obtener su código e introducirlo en el sistema donde se crea un formato de inventario con los códigos.  Éste formato se envía al sistema interno del IPN donde se realiza el comparativo y se devuelve el oficio con las diferencias de inventario.
   
-  Se identifican los libros que están reportados como faltantes y se verifica si un alumno posee el libro, de ser así se agrega como parte del inventario y en caso contrario se cambia el estado del libro a extraviado.
+  Se identifican los materiales que están reportados como faltantes, si éstos materiales son libros o material audiovisual, se verifica si un alumno posee el material, de ser así se agrega como parte del inventario y en caso contrario se realiza una búsqueda extenuante, si después de la búsqueda no se encuentra el material, se cambia el estado del material a extraviado.
+En el supuesto cado de ser equipo de cómputo se vuelve a buscar en la biblioteca, de no ser encontrado se actualiza el estado a extraviado.
   
   %-------------------------------------------
   %Diagrama del proceso
-  \noindent La Figura \cdtRefImg{P2.2}{Cotejar Existencia de Libros} muestra las actividades que se realizan para llevar a cabo el proceso descrito anteriormente.
+  \noindent La Figura \cdtRefImg{P2.2}{Cotejar Existencia de Material} muestra las actividades que se realizan para llevar a cabo el proceso descrito anteriormente.
 
-  \Pfig[1.0]{./procesos/C2/Images/cotejarExistencias.png}{P2.2}{Cotejar Existencia de Libros}
+  \Pfig[1.0]{./procesos/C2/Images/cotejarExistencias.png}{P2.2}{Cotejar Existencia de Material}
 
-} {P2.2:Cotejar Existencia de Libros}
+} {P2.2:Cotejar Existencia de Material}
 
   %-------------------------------------------
   %Elementos del proceso
   \UCitem{Actores} { %Actores
-    \cdtRef{Actor:Bibliotecario}{Bibliotecario} y 
-    \cdtRef{Actor:Lector}{Lector}
+	\cdtRef{Actor:Procesos_T}{Procesos Técnicos}
   }
 
   \UCitem{Objetivo} { %Objetivo
-    Comparar la existencia de libros en biblioteca con el inventario anterior.
+    Comparar la existencia de material en biblioteca con el último estado de la base de datos.
   }
 
   \UCitem{Insumos de entrada} { %Insumos de entrada
   	\begin{UClist}
-  		\UCli Identificadores de libros proporcionados por el \cdtRef{Actor:Bibliotecario}{Bibliotecario} en el formulario \cdtIdRef{F2.2}{Agregar Libros a Inventario}. 
+  		\UCli Identificadores de material proporcionados por el \cdtRef{Actor:Procesos_T}{Procesos Técnicos} al ser escaneados:
+		\UCli \cdtIdRef{F2.5}{Escanear Libros}.
+		\UCli \cdtIdRef{F2.6}{Escanear Material Audiovisual}.
+		\UCli \cdtIdRef{F2.7}{Escanear Equipo de Cómputo}. 
+				  		 
+  		 
      	
     \end {UClist}
   }
   
   \UCitem{Proveedores} { %Proveedores
-    \cdtRef{Actor:Bibliotecario}{Bibliotecario}
+    \cdtRef{Actor:Procesos_T}{Procesos Técnicos}
   }
 
   \UCitem{Productos de salida} { %Productos de salida
     \begin{UClist}
-		\UCli	Actualización del estado de los libros.
+		\UCli	Documentos generados de inventario.
+		\UCli \cdtIdRef{D2.1}{Libros Escaneados}
+		\UCli \cdtIdRef{D2.2}{Material Audiovisual Escaneado}.
+		\UCli \cdtIdRef{D2.3}{Equipo de Cómputo Escaneado}
     \end{UClist}
   }
 
