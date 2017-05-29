@@ -1,0 +1,71 @@
+\begin{UseCase}{CU5.2}{Renovar credencial}{
+	Actualiza la caducidad de la credencial de un Lector(alumno o docente) y visualiza el PDF de la credencial para que pueda imprimirlo directamente o guardarlo.
+}
+		\UCitem{Versión}{0.1}
+		\UCitem{Actor}{Bibliotecario}
+		\UCitem{Propósito}{Permitir a los bibliotecarios renovar la credenciales de los lectores }
+		\UCitem{Entradas}{Se ingresa el id del lector}
+		
+		\UCitem{Salidas}{
+			\begin{itemize}
+				\item \MSGref{MSG5.1}{Credencial generada Exitosamente}
+				\item \MSGref{MSG1.5}{ERROR,sólo se aceptan números}
+				\item \MSGref{MSG4.2}{Usuario inexistente}
+				\MSGref{MSG3.7}{Campos vacíos}
+				\MSGref{MSG3.5}{Usuario con multas}
+			\end{itemize}
+		}
+		
+		\UCitem{Precondiciones}{ 
+		\begin{itemize}
+				\item El lector debe ser estudiante o profesor de la institución.
+				\item El lector debe ser conocido por el sistema.
+			\end{itemize}
+		}
+		\UCitem{Postcondicione}{Se actualiza el registro de la Base de Datos}
+		\UCitem{Autor}{Célula 5}
+	\end{UseCase}
+	
+	%-------------------------------------- COMIENZA descripción Trayectoria Crear
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Da click en el botón \IUbutton{Renovación de la credencial} del menú de opciones.
+	\UCpaso[\UCsist] Redirecciona a la interfaz \IUref{IU01}{Pantalla de Renovacion} 
+	\UCpaso[\UCactor] Ingresa el ID del lector en la nueva interfaz \Trayref{A} \Trayref{B} \Trayref{C} \Trayref{D} \Trayref{E}.
+	\UCpaso[\UCactor] Da click en el boton \IUbutton{Renovar} 
+	\UCpaso[\UCsist] Muestra el mensaje \MSGref{MSG5.1}{Credencial generada exitosamente}
+	\UCpaso[\UCactor] Da click en el botón \IUbutton{Continuar}
+	\UCpaso[\UCsist] Redirecciona a la interfaz \IUref{IU02}{Formato credencial}
+	
+	\end{UCtrayectoria}		
+%	
+	%	-------------------------------------- COMIENZA descripción de las Trayectoria Alternativa.
+	\begin{UCtrayectoriaA}{A}{Se dejan campos nulos}
+		\UCpaso[\UCsist] Despliega el mensaje \MSGref{MSG3.7}{Campos Vacíos}
+		\UCpaso[\UCactor] Da click en aceptar.
+		\UCpaso[\UCactor] Vuelve a ingresar su id.
+	\end{UCtrayectoriaA}
+	
+	\begin{UCtrayectoriaA}{B}{Campo no númerico}
+		\UCpaso[\UCsist] Despliega el mensaje \MSGref{MSG1.5}{Sólo se aceptan números}
+		\UCpaso[\UCactor] Da click en aceptar.
+		\UCpaso[\UCactor] Vuelve a ingresar su id
+	\end{UCtrayectoriaA}
+	
+	\begin{UCtrayectoriaA}{C}{id de lector desconocido}
+		\UCpaso[\UCsist] Despliega el mensaje \MSGref{MSG3.2}{Usuario Inexistente}
+		\UCpaso[\UCactor] Da click en aceptar.
+		\UCpaso[\UCsist] Redirecciona a CreacionCredencial.html para darse de alta
+	\end{UCtrayectoriaA}		
+	
+	\begin{UCtrayectoriaA}{D}{Usuario con adeudos}
+		\UCpaso[\UCsist] Despliega el mensaje \MSGref{MSG3.5}{Usuario con multas}
+		\UCpaso[\UCactor] Da click en aceptar.
+		\UCpaso[\UCsist] Vuelve a pedir un id de lector
+	\end{UCtrayectoriaA}		
+
+	\begin{UCtrayectoriaA}{E}{Error al conectar con la Base de Datos}
+		\UCpaso[\UCsist] Muestra el mensaje \MSGref{MSG3.1}{Error al conectar la Base de Datos}
+		\UCpaso[\UCactor] Da click en aceptar.
+		\UCpaso[\UCactor] Vuelve a reintentar momentos más tarde
+	\end{UCtrayectoriaA}
+%-------------------------------------- TERMINA descripción del caso de uso.
