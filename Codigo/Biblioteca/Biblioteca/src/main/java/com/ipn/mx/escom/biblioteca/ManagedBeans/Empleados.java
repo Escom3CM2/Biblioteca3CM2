@@ -103,30 +103,47 @@ public class Empleados implements Serializable {
     
     public String add()
     {
+        FacesContext context = FacesContext.getCurrentInstance();
         Empleado empleado = new Empleado();
-        empleado.setIdEmpleado(matricula);
-        empleado.setNombre(nombre);
-        empleado.setPrimerAp(primerAp);
-        empleado.setSegundoAp(segundoAp);
-        empleado.setFechaAdmision(fechaAdmision);
-        empleado.setEstadoBorrado(0);
-        Usuario usuario = new Usuario(matricula,password,1);
-        empleado.setRolempleado(getRol(idRol));
-        empleado.setEstadoempleado(getEdo(idEdo));
         
-        empleado.setUsuario(usuario );
-        
-        
-        empleado.setContacto(getCont(1));
-        
-        Session hibernateSession =HibernateUtil.getSessionFactory().openSession();
+        Session hibernateSession;
 
-         Transaction t0=hibernateSession.beginTransaction();
-        hibernateSession.save(usuario);
-        hibernateSession.save(empleado);
-        hibernateSession.getTransaction().commit();
-        hibernateSession.close();
-        return "Empleados";
+        hibernateSession = HibernateUtil.getSessionFactory().openSession(); 
+        Query query = hibernateSession.createQuery("from Empleado where matricula=?");
+        empleado = (Empleado)query.setInteger(0, empleado.getMatricula()).uniqueResult();
+        
+        if(empleado != null){
+            
+            context.addMessage("messagesAdd", new FacesMessage("El usuario ya se encuentra registrado"));
+            return "";
+            
+        }else{
+            
+            empleado.setIdEmpleado(matricula);
+            empleado.setNombre(nombre);
+            empleado.setPrimerAp(primerAp);
+            empleado.setSegundoAp(segundoAp);
+            empleado.setFechaAdmision(fechaAdmision);
+            empleado.setEstadoBorrado(0);
+            Usuario usuario = new Usuario(matricula,password,1);
+            empleado.setRolempleado(getRol(idRol));
+            empleado.setEstadoempleado(getEdo(idEdo));
+
+            empleado.setUsuario(usuario );
+
+
+            empleado.setContacto(getCont(1));
+
+            Session hibernateSession =HibernateUtil.getSessionFactory().openSession();
+
+            Transaction t0=hibernateSession.beginTransaction();
+            hibernateSession.save(usuario);
+            hibernateSession.save(empleado);
+            hibernateSession.getTransaction().commit();
+            hibernateSession.close();
+            return "Empleados";
+        }
+        
     }
     
     public void update(int id){
@@ -192,6 +209,21 @@ public class Empleados implements Serializable {
         return edo;
     }
     
+    
+    public boolean deleteEmpleado(int idEmpleado){
+        Session hibernateSession;
+  
+        hibernateSession=HibernateUtil.getSessionFactory().openSession(); 
+
+        Transaction t=hibernateSession.beginTransaction(); 
+        Empleado Empleado=(Empleado)hibernateSession.load(Empleado.class,idEmpleado);
+        Empleado.setEstadoBorrado(1);
+        hibernateSession.update(Empleado);
+        t.commit(); 
+        hibernateSession.close();
+
+        return true;
+    }
     
     
     

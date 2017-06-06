@@ -6,7 +6,7 @@
           
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Empleados registrados</title>
+        <title>Empleados</title>
     </h:head>
     <h:body>
     <h:form>
@@ -34,10 +34,9 @@
             <p:column colspan="2">
                 <f:facet name="header">Acciones</f:facet>
                
-                <p:commandButton value="Borrar" actionListener="#{catalogos.deletById(e.idEmpleado)}" update=" Tabla">
-                        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+                <p:commandButton value="Borrar" actionListener="#{empleados.deleteEmpleado(e.idEmpleado)}" update=" Tabla">
+                    <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
                 </p:commandButton>
-        
  
                 <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
                     <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
@@ -47,33 +46,37 @@
                  <p:commandButton id="empInf" value="Modificar" type="button" />
                     <p:overlayPanel id="empInfo" for="empInf" hideEffect="fade" dynamic="true" style="width:600px" >
                         <h:panelGrid columns="2" columnClasses="column" cellpadding="5" id="inf">
-                       
                         
+                        <h:outputLabel for="nombre" value="Nombre:" />
+                        <p:inputText id="nombre" value="#{empleados.nombre}" />
                         
-                         <h:outputLabel for="rol" value="rol"/>
-                         <p:inplace id="rol" label="#{e.rolempleado.rolEmp}" effectSpeed="fast" >
+                        <h:outputLabel for="primerAp" value="Primer apellido:" />
+                        <p:inputText id="primerAp" value="#{empleados.primerAp}" />
+            
+                        <h:outputLabel for="segundoAp" value="Segundo apellido:" />
+                        <p:inputText id="segundoAp" value="#{empleados.segundoAp}" />
+                        
+                        <h:outputLabel for="rol" value="rol"/>
+                        <p:inplace id="rol" label="#{e.rolempleado.rolEmp}" effectSpeed="fast" >
                             <p:selectOneMenu value="#{empleados.idRol}">
-                             <f:selectItems value="#{catalogos.showrolempleado()}"  var="r" itemLabel="#{r.rolEmp}" itemValue="#{r.idRolEmpleado}"/>
+                                <f:selectItems value="#{catalogos.showrolempleado()}"  var="r" itemLabel="#{r.rolEmp}" itemValue="#{r.idRolEmpleado}"/>
                             </p:selectOneMenu>
-                         </p:inplace>
+                        </p:inplace>
     
                         <h:outputLabel for="Estado" value="Estado de empleado:"/>
                         <p:inplace id="Estado" label="#{e.estadoempleado.edoEmp}" effectSpeed="fast" >
                             <p:selectOneMenu value="#{empleados.idEdo}">
-                             <f:selectItems value="#{catalogos.showEstadoempleado()}"  var="es" itemLabel="#{es.edoEmp}" itemValue="#{es.idEdoEmp}"/>
+                                <f:selectItems value="#{catalogos.showEstadoempleado()}"  var="es" itemLabel="#{es.edoEmp}" itemValue="#{es.idEdoEmp}"/>
                             </p:selectOneMenu>
                         </p:inplace>
                          
                         <p:commandButton actionListener="#{empleados.update(e.idEmpleado)}" value="Actualizar" update="Tabla" />
                         
-                     </h:panelGrid>
+                        </h:panelGrid>
                     </p:overlayPanel>
             </p:column>
         </p:dataTable>
-        
-    
-        
-        
+
     </h:form>
         <h:link outcome="addEmpleado" value="Agregar usuario" />
     </h:body>

@@ -104,7 +104,7 @@ public class Catalogos {
     
     public String deletById(int idEmpleado)
     {
-         Session hibernateSession;
+        Session hibernateSession;
   
         hibernateSession=HibernateUtil.getSessionFactory().openSession(); 
 
@@ -112,12 +112,8 @@ public class Catalogos {
         Empleado Empleado=(Empleado)hibernateSession.load(Empleado.class,idEmpleado);
         hibernateSession.delete(Empleado);
         t.commit(); 
-         hibernateSession.close();
+        hibernateSession.close();
 
-        
-
-                
-                
         return "Empleados";
     }
     
