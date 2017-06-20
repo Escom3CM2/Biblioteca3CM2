@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Prestamo" table="prestamo" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idPrestamo" type="int">
+            <column name="idPrestamo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="lector" class="com.ipn.mx.escom.biblioteca.Pojos.Lector" fetch="select">
+            <column name="Lector_idLector" not-null="true" />
+        </many-to-one>
+        <property name="fechaInicio" type="date">
+            <column name="FechaInicio" length="10" not-null="true" />
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="FechaFin" length="10" not-null="true" />
+        </property>
+        <property name="estadoPr" type="int">
+            <column name="EstadoPr" not-null="true" />
+        </property>
+        <set name="DPrestamos" table="d_prestamo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Prestamo_idPrestamo" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.DPrestamo" />
+        </set>
+    </class>
+</hibernate-mapping>

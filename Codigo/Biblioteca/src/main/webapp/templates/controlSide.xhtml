@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+
+</h:head>
+<h:body>
+    <div class="navbar-lateral full-reset">
+        <div class="visible-xs font-movile-menu mobile-menu-button"></div>
+        <div class="full-reset container-menu-movile custom-scroll-containers">
+            <div class="logo full-reset all-tittles">
+                <i class="visible-xs zmdi zmdi-close pull-left mobile-menu-button" style="line-height: 55px; cursor: pointer; padding: 0 10px; margin-left: 7px;"></i> 
+                sistema bibliotecario
+            </div>
+            <div class="full-reset" style="background-color:#2B3D51; padding: 10px 0; color:#fff;">
+                <figure>
+                    <img src="/Biblioteca/assets/img/logo.png" alt="Biblioteca" class="img-responsive center-box" style="width:55%;" />
+                </figure>
+                <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
+            </div>
+            <div class="full-reset nav-lateral-list-menu">
+                <ul class="list-unstyled">
+                    <li><a href="/Biblioteca/gestionUsuarios/home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>Inicio</a></li>
+                    <li>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>Gestión de usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <ul class="list-unstyled">
+                            <li><a href="/Biblioteca/pages/Control/gestionUsuarios/RegistraAlumno.xhtml"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>Registrar Estudiante</a></li>
+                            <li><a href="/Biblioteca/pages/Control/gestionUsuarios/ListaAlumos.xhtml"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>Lista de Estudiantes</a></li>
+                            <li><a href="/Biblioteca/pages/Control/gestionUsuarios/RegistraDoc.xhtml"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>Registrar Docente</a></li>
+                            <li><a href="/Biblioteca/pages/Control/gestionUsuarios/ListaDocentes.xhtml"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>Lista de Docentes</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/Biblioteca/gestionCredenciales/renovacionCredencial.html"><i class="glyphicon glyphicon-credit-card"></i>Renovación de Credencial</a></li>
+                    <li>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i>Gestión de Préstamos<i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <ul class="list-unstyled">
+                            <li><a href="/Biblioteca/pages/Control/gestionPrestamos/Devoluciones.xhtml"><i class="zmdi zmdi-bookmark zmdi-hc-fw"></i>Préstamo</a></li>
+                            <li><a href="preExt.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>Devoluciones</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</h:body>
+</html>

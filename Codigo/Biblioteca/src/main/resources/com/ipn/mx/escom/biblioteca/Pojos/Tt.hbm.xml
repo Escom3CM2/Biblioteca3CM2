@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Tt" table="tt" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="noTt" type="string">
+            <column name="noTT" length="45" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="elemento" class="com.ipn.mx.escom.biblioteca.Pojos.Elemento" fetch="select">
+            <column name="Elemento_idElemento" not-null="true" />
+        </many-to-one>
+        <property name="titulo" type="string">
+            <column name="Titulo" length="45" not-null="true" />
+        </property>
+        <property name="fechaPresent" type="date">
+            <column name="FechaPresent" length="10" not-null="true" />
+        </property>
+        <property name="autor1" type="string">
+            <column name="Autor1" length="95" not-null="true" />
+        </property>
+        <property name="autor2" type="string">
+            <column name="Autor2" length="45" />
+        </property>
+        <property name="autor3" type="string">
+            <column name="Autor3" length="45" />
+        </property>
+        <property name="autor4" type="string">
+            <column name="Autor4" length="45" />
+        </property>
+        <property name="autor5" type="string">
+            <column name="Autor5" length="45" />
+        </property>
+        <property name="director1" type="string">
+            <column name="Director1" length="45" not-null="true" />
+        </property>
+        <property name="director2" type="string">
+            <column name="`Director 2`" length="45" />
+        </property>
+        <property name="estadoBorrado" type="java.lang.Integer">
+            <column name="EstadoBorrado" />
+        </property>
+    </class>
+</hibernate-mapping>

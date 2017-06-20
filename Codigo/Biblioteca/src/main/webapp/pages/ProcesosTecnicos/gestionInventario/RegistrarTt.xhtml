@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      >
+
+    <h:head>
+        <title>Registrar TT</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="Shortcut Icon" type="image/x-icon" href="../../../assets/icons/book.ico" ></link>
+        <script src="../../../js/sweet-alert.min.js"></script>
+        <script src="../../../js/custom.js"></script>
+        <link rel="stylesheet" href="../../../css/sweet-alert.css"></link>
+        <link rel="stylesheet" href="../../../css/material-design-iconic-font.min.css"></link>
+        <link rel="stylesheet" href="../../../css/normalize.css"></link>
+        <link rel="stylesheet" href="../../../css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="../../../css/jquery.mCustomScrollbar.css"></link>
+        <link rel="stylesheet" href="../../../css/style.css"></link>
+        <script name="jquery/jquery.js" library="primefaces"></script>
+
+        <script src="../../../js/modernizr.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="../../../js/main.js"></script>    
+            
+    </h:head>
+    <h:body>
+        <ui:insert>
+            <ui:include src="../../../templates/procesosSide.xhtml" />
+        </ui:insert>
+    
+        <div class="content-page-container full-reset">
+        
+            <ui:insert>
+                <ui:include src="../../../templates/top.xhtml" />
+            </ui:insert>
+        
+            <div class="container">
+                <div class="page-header">
+                    <h1 class="all-tittles">Control de Inventario</h1>
+                </div>
+            </div>
+
+            <div class="title-flat-form title-flat-blue">Registrar Libro</div>
+
+            <div class="container-fluid"  style="margin: 50px 0;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
+                        Ingrese los campos requeridos para el registro del Libro
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                Registrar TT
+                <br/>
+
+                <h:form id="registrarTt">
+                    <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                    <p:growl id="msgs" showDetail="true" />
+                    <h:panelGrid columns="2" columnClasses="column" cellpadding="5" id ="inf">
+                        <h:outputLabel for ="noTt" value="Identificador: " /> 
+                        <p:inputText id="noTt" value="#{tTs.noTt}" a:placeholder="#Identificador"/>
+
+                        <h:outputLabel for ="titulo" value="Título: "/> 
+                        <p:inputText id="titulo" value="#{tTs.titulo}" a:placeholder="#Titulo"/>
+
+                        <h:outputLabel for ="autor1" value="Autor1: "/> 
+                        <p:inputText id="autor1" value="#{tTs.autor1}" a:placeholder="#Autor1"/>
+
+                        <h:outputLabel for ="autor2" value="Autor2: "/> 
+                        <p:inputText id="autor2" value="#{tTs.autor2}" a:placeholder="#Autor2"/>
+
+                        <h:outputLabel for ="autor3" value="Autor3: " /> 
+                        <p:inputText id="autor3" value="#{tTs.autor3}" a:placeholder="#Autor3"/>
+
+                        <h:outputLabel for ="autor4" value="Autor4: " /> 
+                        <p:inputText id="autor4" value="#{tTs.autor4}" a:placeholder="#Autor4"/>
+
+                        <h:outputLabel for ="autor5" value="Autor5: " /> 
+                        <p:inputText id="autor5" value="#{tTs.autor5}" a:placeholder="#Autor5"/>
+
+                        <h:outputLabel for ="fecha" value="Fecha: " />
+                        <p:calendar id="fechaPresent" value="#{tTs.fechaPresent}" pattern="dd-MM-yyyy" mask="true" a:placeholder="#Fecha de Publicación"/>
+
+                        <h:outputLabel for ="director1" value="Director1: " /> 
+                        <p:inputText id="director1" value="#{tTs.director1}" a:placeholder="#Director1"/>
+
+                        <h:outputLabel for ="director2" value="Director2: " /> 
+                        <p:inputText id="director2" value="#{tTs.director2}" a:placeholder="#Director2"/>
+
+                    </h:panelGrid>
+
+                    <p:commandButton value="Limpiar" update="inf" process="@this" style="margin-right:20px;" >
+                        <p:resetInput target="inf" />
+                    </p:commandButton>
+
+                    <p:commandButton value="Registrar" action="#{tTs.add()}" />
+                </h:form>
+            </div>
+
+
+        </div>
+
+    </h:body>
+</html>
+

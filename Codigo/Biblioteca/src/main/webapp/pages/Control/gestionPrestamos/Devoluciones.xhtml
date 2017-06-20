@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      >
+
+    <h:head>
+        <title>Devoluciones</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="Shortcut Icon" type="image/x-icon" href="../../../assets/icons/book.ico" ></link>
+        <script src="../../../js/sweet-alert.min.js"></script>
+        <script src="../../../js/custom.js"></script>
+        <link rel="stylesheet" href="../../../css/sweet-alert.css"></link>
+        <link rel="stylesheet" href="../../../css/material-design-iconic-font.min.css"></link>
+        <link rel="stylesheet" href="../../../css/normalize.css"></link>
+        <link rel="stylesheet" href="../../../css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="../../../css/jquery.mCustomScrollbar.css"></link>
+        <link rel="stylesheet" href="../../../css/style.css"></link>
+        <script name="jquery/jquery.js" library="primefaces"></script>
+
+        <script src="../../../js/modernizr.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="../../../js/main.js"></script>    
+            
+    </h:head>
+    <h:body>
+
+        <ui:insert>
+            <ui:include src="../../../templates/Biblioteca3.xhtml" />
+        </ui:insert>
+    
+        <div class="content-page-container full-reset">
+        
+            <ui:insert>
+                <ui:include src="../../../templates/Biblioteca2.xhtml" />
+            </ui:insert>
+            
+            
+            <div class="container">
+                <div class="page-header">
+                    <h1 class="all-tittles">Devoluciones</h1>
+                </div>
+            </div>
+
+            <div class="title-flat-form title-flat-blue">Devolucion de material</div>
+
+            <div class="container-fluid"  style="margin: 50px 0;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
+                        Ingrese los campos requeridos para el registro del Libro
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <h1>
+                    Modificar TT
+                </h1>
+
+                <br/>
+
+                <h:form>
+           <p:growl id="growl" life="2000" showDetail="true" />
+            <p:messages autoUpdate="true" />
+            <h:panelGrid columns="24" style="margin-bottom:10px" cellpadding="3">
+            <p:outputLabel for="console" value="Id del recurso:" />
+            <p:inputText id="console" value="#{devolucionBean.id_material}"/>
+            <p:commandButton value="Devolver" id="ajax" update="data" actionListener="#{devolucionBean.devolver}" 
+                             styleClass="ui-priority-primary" onclick="parentPanel.show();"/>
+            </h:panelGrid>
+       </h:form>
+        
+       <p:panelGrid id="data" columns="2" rendered="#{not empty devolucionBean.id_material}">      
+           <f:facet name="header">
+               Datos del préstamo
+           </f:facet>
+            <h:outputText value="Nombre de usuario " /> 
+            <h:outputText value="#{devolucionBean.estudiante.nombre}" /> 
+
+            <h:outputText value="Boleta" /> 
+            <h:outputText value="#{devolucionBean.estudiante.boleta}" /> 
+
+            <h:outputText value="Título de material" /> 
+            <h:outputText value="#{devolucionBean.libro.titulo}" />  
+            
+            <h:outputText value="Id de Material" /> 
+            <h:outputText value="#{devolucionBean.ejemplar.idEjemplar}" />  
+            
+            <h:outputText value="Fecha préstamo" /> 
+            <h:outputText value="#{devolucionBean.prestamo.fechaInicio}" />  
+            
+            <h:outputText value="Fecha devolución" /> 
+            <h:outputText value="#{devolucionBean.prestamo.fechaFin}" />  
+            
+            <h:outputText value="Observaciones" /> 
+            <h:outputText value="#{devolucionBean.ejemplar.observaciones}" />  
+            
+            <h:outputText value="Cambios físicos" />
+            <h:form>
+                
+                <p:selectManyButton value="#{devolucionBean.otras_multas}">
+                    <f:selectItem itemLabel="Rayado" itemValue="rayado" />
+                    <f:selectItem itemLabel="Mutilado" itemValue="mutilado" />
+                    <f:selectItem itemLabel="Manchado" itemValue="manchado" />
+                </p:selectManyButton>
+                
+            </h:form>
+            
+            <h:outputText value="Total de multa" /> 
+            <h:outputText value="$#{devolucionBean.total_multa}" />
+            
+        </p:panelGrid>
+        
+        <h:form id="form1" rendered="#{not empty devolucionBean.id_material}">
+            <p:commandButton value="Modificar observaciones" type="button" onclick="PF('dlg1').show();"/>
+            <p:commandButton value="Imprimir multa" type="button"/>
+        </h:form>
+        
+        
+        <p:dialog header="Modificar observaciones" widgetVar="dlg1" modal="true" resizable="false">
+            <h:form id="formModificar">
+                <p:panelGrid columns="1" style="border:none;">
+                    <p:inputTextarea rows="5" cols="45" value="#{devolucionBean.ejemplar.observaciones}"/>
+                    <p:commandButton value="Modificar" update=":data" 
+                                     actionListener="#{devolucionBean.modificarObs}"
+                                     onclick="PF('dlg1').hide();"/>
+                </p:panelGrid>               
+            </h:form>
+        </p:dialog>   
+        
+            </div>
+        </div>
+
+    </h:body>
+</html>
+

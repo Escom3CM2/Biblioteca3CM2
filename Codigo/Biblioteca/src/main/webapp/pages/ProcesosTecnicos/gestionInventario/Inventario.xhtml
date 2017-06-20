@@ -1,0 +1,122 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>regStudent</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="Shortcut Icon" type="image/x-icon" href="../../../assets/icons/book.ico" ></link>
+        <script src="../../../js/sweet-alert.min.js"></script>
+        <link rel="stylesheet" href="../../../css/sweet-alert.css"></link>
+        <link rel="stylesheet" href="../../../css/material-design-iconic-font.min.css"></link>
+        <link rel="stylesheet" href="../../../css/normalize.css"></link>
+        <link rel="stylesheet" href="../../../css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="../../../css/jquery.mCustomScrollbar.css"></link>
+        <link rel="stylesheet" href="../../../css/style.css"></link>
+        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+        <script name="jquery/jquery.js" library="primefaces"></script>
+        <script src="../../../js/jquery-1.11.2.min.js"></script>
+        <script src="../../../js/modernizr.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="../../../js/main.js"></script>
+    </h:head>
+    <h:body>
+        <div class="navbar-lateral full-reset">
+            <div class="visible-xs font-movile-menu mobile-menu-button"></div>
+            <div class="full-reset container-menu-movile custom-scroll-containers">
+                <div class="logo full-reset all-tittles">
+                    <i class="visible-xs zmdi zmdi-close pull-left mobile-menu-button" style="line-height: 55px; cursor: pointer; padding: 0 10px; margin-left: 7px;"></i> 
+                    sistema bibliotecario
+                </div>
+                <div class="full-reset" style="background-color:#2B3D51; padding: 10px 0; color:#fff;">
+                    <figure>
+                        <img src="../../../assets/img/logo.png" alt="Biblioteca" class="img-responsive center-box" style="width:55%;"></img>
+                    </figure>
+                    <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
+                </div>
+                <div class="full-reset nav-lateral-list-menu">
+                    <ul class="list-unstyled">
+                        <li><a href="../gestionInventario/Inventario.xhtml"><i class="zmdi zmdi-home zmdi-hc-fw"></i>Inicio</a></li>
+                        <li>
+                            <div class="dropdown-menu-button"><i class="zmdi zmdi-plus-square zmdi-hc-fw"></i>REGISTRAR  <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                            <ul class="list-unstyled">
+                                <li><a href="ConsultarLibro.xhtml"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i>Libros</a></li>
+                                <li><a href="ConsultarTTReg.xhtml"><i class="zmdi zmdi-file-text zmdi-hc-fw"></i>TT</a></li>
+                                <li><a href="ConsultarEqAudio.html"><i class="zmdi zmdi-movie-alt zmdi-hc-fw"></i>Material audiovisual</a></li>
+                                <li><a href="ConsultarEqComp.html"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i>Equipo de computo</a></li>
+                            </ul>
+
+                            <div class="dropdown-menu-button"><i class="zmdi zmdi-edit zmdi-hc-fw"></i>MODIFICAR O ELIMINAR  <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                            <ul class="list-unstyled">
+                                <li><a href="ConsultarCatLibro.html"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i>Libros</a></li>
+                                <li><a href="ConsultarTTMod.xhtml"><i class="zmdi zmdi-file-text zmdi-hc-fw"></i>TT</a></li>
+                                <li><a href="ConsultarCatEqAudio.html"><i class="zmdi zmdi-movie-alt zmdi-hc-fw"></i>Material audiovisual</a></li>
+                                <li><a href="ConsultarCatEqComp.html"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i>Equipo de computo</a></li>
+                            </ul>
+
+                            <div class="dropdown-menu-button"><i class="zmdi zmdi-case-check zmdi-hc-fw"></i>GENERAR REPORTE Y ENVIAR <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                            <ul class="list-unstyled">
+                                <li><a href="EscanearLibro.html"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i>Libros</a></li>
+                                <li><a href="EscanearEqAudio.html"><i class="zmdi zmdi-movie-alt zmdi-hc-fw"></i>Material audiovisual</a></li>
+                                <li><a href="EscanearEqComp.html"><i class="zmdi zmdi-desktop-mac zmdi-hc-fw"></i>Equipo de computo</a></li>
+                            </ul>
+
+
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content-page-container full-reset custom-scroll-containers">
+            <nav class="navbar-user-top full-reset">
+                <ul class="list-unstyled full-reset">
+                    <figure>
+                        <img src="../../../assets/img/user01.png" alt="user-picture" class="img-responsive img-circle center-box"></img>
+                    </figure>
+                    <li style="color:#fff; cursor:default;">
+                        <span class="all-tittles">Bibliotecario Name</span>
+                    </li>
+                    <li  class="tooltips-general exit-system-button" data-href="../../../index.html" data-placement="bottom" title="Salir del sistema">
+                        <i class="zmdi zmdi-power"></i>
+                    </li>
+
+                    <li  class="tooltips-general btn-help" data-placement="bottom" title="Ayuda">
+                        <i class="zmdi zmdi-help-outline zmdi-hc-fw"></i>
+                    </li>
+                    <li class="mobile-menu-button visible-xs" style="float: left !important;">
+                        <i class="zmdi zmdi-menu"></i>
+                    </li>
+                </ul>
+            </nav>
+            <div class="container">
+                <div class="page-header">
+                    <h1 class="all-tittles">Control de Inventario</h1>
+                </div>
+            </div>
+
+            <div class="title-flat-form title-flat-blue">Registrar Libro</div>
+
+            <div class="container-fluid"  style="margin: 50px 0;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
+                        Ingrese los campos requeridos para el registro del Libro
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
+                        Bienvenido a la sección de control de inventario, usted podrá llevar un control de la biblioteca con los elementos existentes, registrar un nuevo elemento, modificarlo y eliminarlo, ademas podrá enviar el reporte.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>

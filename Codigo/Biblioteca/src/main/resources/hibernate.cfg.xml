@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/proyectobiblioteca?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.connection.pool_size">100</property>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Datosacademicos.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Docente.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Estudiante.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Libro.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Rolempleado.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Estadoestudiante.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/TipoAudiovisual.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Prestamointer.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Usuario.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Delegacion.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Estadolibro.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Lector.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Colonia.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Prestamoexterno.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Multa.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Elemento.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Prestamo.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Contacto.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Prestamootros.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Ejemplar.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Empleado.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Audiovisual.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Dmultaeje.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Credencial.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/DPrestamo.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Tipomulta.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Escuela.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/DPresot.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Multaextarna.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Tipoestudiante.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Cp.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Estadoempleado.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Estadoelemnto.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Tt.hbm.xml"/>
+    <mapping resource="com/ipn/mx/escom/biblioteca/Pojos/Computo.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

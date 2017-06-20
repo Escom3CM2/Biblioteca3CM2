@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.TipoAudiovisual" table="tipo_audiovisual" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idTipoAudiovisual" type="int">
+            <column name="idTipoAudiovisual" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="libro" class="com.ipn.mx.escom.biblioteca.Pojos.Libro" fetch="select">
+            <column name="Libro_ISBNID" length="45" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="45" not-null="true" />
+        </property>
+        <set name="audiovisuals" table="audiovisual" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Audiovisual_tipoAudiovisual" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Audiovisual" />
+        </set>
+    </class>
+</hibernate-mapping>

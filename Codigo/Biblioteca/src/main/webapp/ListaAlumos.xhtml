@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+          
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Empleados registrados</title>
+    </h:head>
+    <h:body>
+    <h:form>
+    <p:panel header="Alumnos" >
+   
+        <p:dataTable value="#{usuarioAlumno.Alumnos()}" var="alumno" paginator="" rowsPerPageLabel="Empleados" rows="" id="Tabla"  >
+            <p:column headerText="Boleta">
+                <h:outputText value="#{alumno.boleta}"/>
+            </p:column>
+            
+            <p:column headerText="Semestre">
+                <h:outputText value="#{usuarioAlumno.Semestre(alumno.boleta)}"/>
+            </p:column>
+            
+            <p:column headerText="Apellidos">
+                <h:outputText value="#{usuarioAlumno.Apellidos(alumno.primerApellido,alumno.segundoApellido) }"/>
+            </p:column>
+            <p:column headerText="Nombre">
+                <h:outputText value="#{alumno.nombre}"/>
+            </p:column>
+            
+            <p:column headerText="Telefono">
+                <h:outputText value="#{usuarioAlumno.Telefono(alumno)}"/>
+            </p:column>
+            
+            <p:column headerText="Actualizar">
+                <p:commandButton value="Modal"  oncomplete="PF('dialogo').show();" actionListener="#{usuarioAlumno.setEstudiante(alumno)}" update="Actualizar"/> 
+
+                <p:dialog header="Actualizar informacion" widgetVar="dialogo" modal="true"  width="400" resizable="false"  closable="true" id="Actualizar">
+                    <h:panelGrid columns="2"  >
+                    <h:outputLabel for="basic" value="Nombre:"/>
+                        <p:inputText value="#{usuarioAlumno.nombre}" id="basic" />
+                    <p:commandButton action="#{usuarioAlumno.Modificar(alumno)}" ajax="false"/>
+                </h:panelGrid>        
+                </p:dialog> 
+            </p:column>
+            
+            <p:column headerText="Eliminar">
+                <p:commandButton  actionListener="#{usuarioAlumno.Eliminar(alumno)}" update="Tabla" icon="ui-icon-refresh">
+                    <p:confirm header="Confirmacion" message="¿Elimininar Alumno?" icon="ui-icon-alert" />
+                </p:commandButton>
+
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:commandButton value="Sí" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                </p:confirmDialog>
+            </p:column>
+            
+            
+            
+            
+        </p:dataTable>
+        
+    
+        
+    </p:panel>
+    </h:form>
+        <h:link outcome="RegistraAlumno" value="Agregar Alumno" />
+    </h:body>
+</html>

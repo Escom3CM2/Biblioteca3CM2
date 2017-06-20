@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      >
+
+    <h:head>
+        <title>Consultar TT</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="Shortcut Icon" type="image/x-icon" href="../../../assets/icons/book.ico" ></link>
+        <script src="../../../js/sweet-alert.min.js"></script>
+        <script src="../../../js/custom.js"></script>
+        <link rel="stylesheet" href="../../../css/sweet-alert.css"></link>
+        <link rel="stylesheet" href="../../../css/material-design-iconic-font.min.css"></link>
+        <link rel="stylesheet" href="../../../css/normalize.css"></link>
+        <link rel="stylesheet" href="../../../css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="../../../css/jquery.mCustomScrollbar.css"></link>
+        <link rel="stylesheet" href="../../../css/style.css"></link>
+        <script name="jquery/jquery.js" library="primefaces"></script>
+
+        <script src="../../../js/modernizr.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="../../../js/main.js"></script>   
+    </h:head>
+    <h:body>
+
+        <ui:insert>
+            <ui:include src="../../../templates/controlSide.xhtml" />
+        </ui:insert>
+
+        <div class="content-page-container full-reset">
+
+            <ui:insert>
+                <ui:include src="../../../templates/top.xhtml" />
+            </ui:insert>
+            <h:form>
+                <p:panel header="Registrar un nuevo estudiante">
+                    <p:messages showDetail="true" autoUpdate="true" closable="true"/>
+
+                    <h:panelGrid id="grid" columns="3" cellpadding="5">
+
+                        <h:outputLabel for="Boleta" value="Boleta:" style="font-weight:bold"/>                    
+                        <p:inputMask id="Boleta" value="#{usuarioAlumno.boleta}" label="Boleta" mask="9999999999" required="true">
+                        </p:inputMask>
+                        <p:message for="Boleta"  />
+
+                        <h:outputLabel for="Nombre" value="Nombre:" style="font-weight:bold"/>                    
+                        <p:inputText id="Nombre" value="#{usuarioAlumno.nombre}" required="true" label="Nombre"/>
+                        <p:message for="Nombre" />
+
+                        <h:outputLabel for="PApellido" value="Pimer Apellido:" style="font-weight:bold"/>                    
+                        <p:inputText id="PApellido" value="#{usuarioAlumno.primerApellido}" required="true" label="Primer Apellido"/>
+                        <p:message for="PApellido" />
+
+                        <h:outputLabel for="SApellido" value="Segundo Apellido:" style="font-weight:bold"/>                    
+                        <p:inputText id="SApellido" value="#{usuarioAlumno.segundoApellido}" required="true" label="Segundo Apellido"/>
+                        <p:message for="SApellido" />
+
+                        <h:outputLabel for="Curp" value="Curp:" style="font-weight:bold"/>                    
+                        <p:inputText id="Curp" value="#{usuarioAlumno.curp}" validatorMessage="El curp es incorrecto.">
+
+                        </p:inputText>
+                        <p:message for="Curp" />
+
+                        <h:outputLabel for="fecha" value="Fecha de nacimiento:" style="font-weight:bold" />
+                        <p:calendar  id="fecha"    required="true" value="#{usuarioAlumno.fechaNac}" label="Fecha" />
+                        <p:message for="fecha" />
+
+                        <p:separator title="Datos personales"   />
+                        <p:separator title="Datos personales"   />
+                        <p:separator title="Datos personales"   />
+
+                        <h:outputLabel for="Direccion" value="Direccion:" style="font-weight:bold"/>                    
+                        <p:inputText id="Direccion" value="#{usuarioAlumno.calleNum}" required="true" label="Direccion"/>
+                        <p:message for="Direccion" />
+
+                        <h:outputLabel for="Colonia" value="Colonia:" style="font-weight:bold"/>                    
+                        <p:inputText id="Colonia" value="#{usuarioAlumno.colonia}" required="true" label="Colonia"/>
+                        <p:message for="Colonia" />
+
+                        <h:outputLabel for="Delegacion" value="Delegacion:" style="font-weight:bold"/>                    
+                        <p:inputText id="Delegacion" value="#{usuarioAlumno.delegacion}" required="true" label="Delegacion"/>
+                        <p:message for="Delegacion" />
+
+                        <h:outputLabel for="CP" value="Codigo Postal:" style="font-weight:bold"/>                    
+                        <p:inputMask id="CP" value="#{usuarioAlumno.cp}" label="CP" mask="99999" required="true">
+                        </p:inputMask>
+                        <p:message for="CP"  />
+
+
+                        <h:outputLabel for="Telefono" value="Telefono de casa:" style="font-weight:bold"/>                    
+                        <p:inputMask id="Telefono" value="#{usuarioAlumno.telCasa}" label="Telefono" mask="99-99-99-99" required="true">
+                        </p:inputMask>
+                        <p:message for="Telefono"  />
+
+                        <h:outputLabel for="TelefonoC" value="Telefono de celular:" style="font-weight:bold"/>                    
+                        <p:inputMask id="TelefonoC" value="#{usuarioAlumno.telCelular}" label="Telefono celular" mask="(99) 9999 9999" required="true">
+                        </p:inputMask>
+                        <p:message for="TelefonoC"  />
+
+                        <h:outputLabel for="Correo" value="Correo:" style="font-weight:bold"/>                    
+                        <p:inputText id="Correo" value="#{usuarioAlumno.correo}" required="true" label="Correo"/>
+                        <p:message for="Correo" />  
+
+                        <h:outputLabel for="Password" value="Password:" style="font-weight:bold"/>                    
+                        <p:password feedback="true" id="Password" required="true" value="#{usuarioAlumno.password}" label="Password"
+                                    promptLabel="Ingresa tu contraseña" weakLabel="Debil"
+                                    goodLabel="Buena" strongLabel="Fuerte"/>
+                        <p:message for="Password"  />
+
+                        <h:outputLabel for="Semestre" value="Semestre:" style="font-weight:bold"/>                    
+                        <p:selectOneMenu id="Semestre" value="#{usuarioAlumno.semestre}">
+                            <f:selectItem itemLabel="Primer Semestre" itemValue="1" />
+                            <f:selectItem itemLabel="Segundo Semestre" itemValue="2" />
+                            <f:selectItem itemLabel="Tercer Semestre" itemValue="3" />
+                            <f:selectItem itemLabel="Cuarto Semestre" itemValue="4" />
+                            <f:selectItem itemLabel="Quinto Semestre" itemValue="5" />
+                            <f:selectItem itemLabel="Sexto Semestre" itemValue="6" />
+                            <f:selectItem itemLabel="Septimo Semestre" itemValue="7" />
+                            <f:selectItem itemLabel="Octavo Semestre" itemValue="8" />
+                            <f:selectItem itemLabel="Noveno Semestre" itemValue="9" />
+                            <f:selectItem itemLabel="Decimo Semestre" itemValue="10" />
+                        </p:selectOneMenu>
+                        <p:message for="Semestre"/>
+                    </h:panelGrid>
+
+                    <p:commandButton value="Ajax" update="grid" icon="ui-icon-check" validateClient="true" style="margin-right:10px" action="#{usuarioAlumno.add()}"/>
+
+                </p:panel>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

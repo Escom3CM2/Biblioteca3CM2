@@ -1,0 +1,6 @@
+Lista de Usuarios
+
+Jefe de Bblioteca = Jefe de Biblioteca
+Lector = Lector
+Inventarios = Procesos Tecnicos
+Bibliotecario = Control

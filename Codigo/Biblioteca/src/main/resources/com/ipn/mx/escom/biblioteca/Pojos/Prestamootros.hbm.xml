@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Prestamootros" table="prestamootros" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idPrestamoOtros" type="int">
+            <column name="idPrestamoOtros" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="lector" class="com.ipn.mx.escom.biblioteca.Pojos.Lector" fetch="select">
+            <column name="Lector_idLector" not-null="true" />
+        </many-to-one>
+        <property name="fechaInicio" type="date">
+            <column name="FechaInicio" length="10" not-null="true" />
+        </property>
+        <property name="fechFin" type="date">
+            <column name="FechFin" length="10" />
+        </property>
+        <property name="edoPr" type="java.lang.Integer">
+            <column name="EdoPr" />
+        </property>
+        <property name="horaInicio" type="time">
+            <column name="HoraInicio" length="8" />
+        </property>
+        <property name="horaFin" type="time">
+            <column name="HoraFin" length="8" />
+        </property>
+        <set name="DPresots" table="d_presot" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PrestamoOtros_idPrestamoOtros" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.DPresot" />
+        </set>
+    </class>
+</hibernate-mapping>

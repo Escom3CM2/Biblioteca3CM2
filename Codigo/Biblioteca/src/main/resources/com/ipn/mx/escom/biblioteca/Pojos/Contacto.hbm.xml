@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Contacto" table="contacto" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idContacto" type="int">
+            <column name="idContacto" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="colonia" class="com.ipn.mx.escom.biblioteca.Pojos.Colonia" fetch="select">
+            <column name="Colonia_idColonia" not-null="true" />
+        </many-to-one>
+        <property name="calleNum" type="string">
+            <column name="CalleNum" length="80" />
+        </property>
+        <property name="telCasa" type="string">
+            <column name="TelCasa" length="45" />
+        </property>
+        <property name="telCelular" type="string">
+            <column name="TelCelular" length="45" />
+        </property>
+        <property name="correo" type="string">
+            <column name="Correo" length="45" />
+        </property>
+        <set name="lectors" table="lector" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Contacto_idContacto" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Lector" />
+        </set>
+        <set name="empleados" table="empleado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Contacto_idContacto" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Empleado" />
+        </set>
+    </class>
+</hibernate-mapping>

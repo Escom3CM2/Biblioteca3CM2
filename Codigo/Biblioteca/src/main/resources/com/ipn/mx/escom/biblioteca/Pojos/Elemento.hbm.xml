@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Elemento" table="elemento" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idElemento" type="int">
+            <column name="idElemento" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="estadoelemnto" class="com.ipn.mx.escom.biblioteca.Pojos.Estadoelemnto" fetch="select">
+            <column name="EstadoElemnto_idEdoElemnto" not-null="true" />
+        </many-to-one>
+        <set name="audiovisuals" table="audiovisual" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Elemento_idElemento" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Audiovisual" />
+        </set>
+        <set name="computos" table="computo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Elemento_idElemento" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Computo" />
+        </set>
+        <set name="DPresots" table="d_presot" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Elemento_idElemento" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.DPresot" />
+        </set>
+        <set name="tts" table="tt" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Elemento_idElemento" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Tt" />
+        </set>
+    </class>
+</hibernate-mapping>

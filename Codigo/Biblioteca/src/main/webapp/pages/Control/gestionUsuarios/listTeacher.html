@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>regStudent</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Shortcut Icon" type="image/x-icon" href="../../../assets/icons/book.ico" />
+    <script src="../../../js/sweet-alert.min.js"></script>
+    <link rel="stylesheet" href="../../../css/sweet-alert.css">
+    <link rel="stylesheet" href="../../../css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="../../../css/normalize.css">
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../../js/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="../../../js/modernizr.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../../js/main.js"></script>
+</head>
+<body>
+    <div class="navbar-lateral full-reset">
+        <div class="visible-xs font-movile-menu mobile-menu-button"></div>
+        <div class="full-reset container-menu-movile custom-scroll-containers">
+            <div class="logo full-reset all-tittles">
+                <i class="visible-xs zmdi zmdi-close pull-left mobile-menu-button" style="line-height: 55px; cursor: pointer; padding: 0 10px; margin-left: 7px;"></i> 
+                sistema bibliotecario
+            </div>
+            <div class="full-reset" style="background-color:#2B3D51; padding: 10px 0; color:#fff;">
+                <figure>
+                    <img src="../../../assets/img/logo.png" alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
+                </figure>
+                <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
+            </div>
+            <div class="full-reset nav-lateral-list-menu">
+                <ul class="list-unstyled">
+                    <li><a href="home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                    <li>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Gestión de usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <ul class="list-unstyled">
+                            <li><a href="regStudent.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Registrar Estudiante</a></li>
+                            <li><a href="listStudents.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Estudiantes</a></li>
+                            <li><a href="regTeacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i>&nbsp;&nbsp; Registrar Docente</a></li>
+                            <li><a href="listTeacher.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Docentes</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../gestionCredenciales/renovacionCredencial.html"><i class="glyphicon glyphicon-credit-card"></i>&nbsp;&nbsp; Renovaci&oacute;n de Credencial</a></li>
+                    <li>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i>&nbsp;&nbsp; Gestión de Pr&eacute;stamos <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <ul class="list-unstyled">
+                            <li><a href="../gestionPrestamos/preInt.html"><i class="zmdi zmdi-bookmark zmdi-hc-fw"></i>&nbsp;&nbsp; Interno</a></li>
+                            <li><a href="../gestionPrestamos/preExt.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Externo</a></li>
+                            <li><a href="../gestionPrestamos/ConsultaPres.html"><i class="zmdi zmdi-search zmdi-hc-fw"></i>&nbsp;&nbsp; Consulta Pr&eacute;stamos</a></li>
+                            <li><a href="../gestionPrestamos/ConsultaPresInt.html"><i class="zmdi zmdi-search zmdi-hc-fw"></i>&nbsp;&nbsp; Consulta Interbibliotecario</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-page-container full-reset custom-scroll-containers">
+        <nav class="navbar-user-top full-reset">
+            <ul class="list-unstyled full-reset">
+                <figure>
+                   <img src="../../../assets/img/user01.png" alt="user-picture" class="img-responsive img-circle center-box">
+                </figure>
+                <li style="color:#fff; cursor:default;">
+                    <span class="all-tittles">Bibliotecario Name</span>
+                </li>
+                <li  class="tooltips-general exit-system-button" data-href="../../../index.html" data-placement="bottom" title="Salir del sistema">
+                    <i class="zmdi zmdi-power"></i>
+                </li>
+             
+                <li  class="tooltips-general btn-help" data-placement="bottom" title="Ayuda">
+                    <i class="zmdi zmdi-help-outline zmdi-hc-fw"></i>
+                </li>
+                <li class="mobile-menu-button visible-xs" style="float: left !important;">
+                    <i class="zmdi zmdi-menu"></i>
+                </li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="page-header">
+              <h1 class="all-tittles">Sistema bibliotecario <small>Gestión de Usuarios</small></h1>
+            </div>
+        </div>
+       
+        <div class="container-fluid"  style="margin: 50px 0;">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <img src="../../../assets/img/user03.png" alt="user" class="img-responsive center-box" style="max-width: 110px;">
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
+                    Bienvenido a la sección donde se encuentra el listado de docentes registrados en el sistema, puedes actualizar algunos datos de los docentes o eliminar el registro completo del docente siempre y cuando no tenga préstamos asociados.<br>
+                    <strong class="text-danger"><i class="zmdi zmdi-alert-triangle"></i> &nbsp; ¡Importante! </strong>Si eliminas el docente del sistema se borrarán todos los datos relacionados con él, incluyendo préstamos y registros en la bitácora.
+                </div>
+            </div>
+        </div>
+        
+        
+         <div class="container-fluid" style="margin: 0 0 50px 0;">
+            <h2 class="text-center all-tittles" style="margin: 25px 0; clear: both;">Departamentos</h2>
+            <ul class="list-unstyled text-center list-catalog-container">
+                <li class="list-catalog">Formación Básica</li>
+                <li class="list-catalog">Ciencias e ingenieria de la computación</li>
+                <li class="list-catalog">Ingenieria en sistemas computacionales</li>
+                <li class="list-catalog">Formación Integral e institucional</li>
+            </ul>
+        </div>
+
+        <div class="container-fluid">
+            <form class="pull-right" style="width: 30% !important;" autocomplete="off">
+                <div class="group-material">
+                    <input type="search" style="display: inline-block !important; width: 70%;" class="material-control tooltips-general" placeholder="Buscar docente" required="" pattern="[a-zA-ZáéíóúÁÉÍÓÚ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe el número de empleado o nombre del docente">
+                    <button class="btn" style="margin: 0; height: 43px; background-color: transparent !important;">
+                        <i class="zmdi zmdi-search" style="font-size: 25px;"></i>
+                    </button>
+                </div>
+            </form>
+            <h2 class="text-center all-tittles" style="clear: both; margin: 25px 0;">Listado de docentes</h2>
+            <div class="table-responsive">
+                <div class="div-table" style="margin:0 !important;">
+                    <div class="div-table-row div-table-row-list" style="background-color:#DFF0D8; font-weight:bold;">
+                        <div class="div-table-cell" style="width: 6%;">#Empleado</div>
+                        <div class="div-table-cell" style="width: 15%;">Departamento</div>
+                        <div class="div-table-cell" style="width: 15%;">Apellidos</div>
+                        <div class="div-table-cell" style="width: 15%;">Nombres</div>
+                        <div class="div-table-cell" style="width: 12%;">Teléfono</div>
+                        <div class="div-table-cell" style="width: 9%;">Actualizar</div>
+                        <div class="div-table-cell" style="width: 9%;">Eliminar</div>
+                    </div>
+                </div>
+                
+                  <div class="table-responsive">
+                    <div class="div-table" style="margin:0 !important;">
+                        <div class="div-table-row div-table-row-list">
+                         <div class="div-table-cell" style="width: 6%;">#Empleado</div>
+                        <div class="div-table-cell" style="width: 15%;">Departamente</div>
+                        <div class="div-table-cell" style="width: 15%;">Apellidos</div>
+                        <div class="div-table-cell" style="width: 15%;">Nombres</div>
+                        <div class="div-table-cell" style="width: 12%;">Teléfono</div>
+                         
+            <div class="div-table-cell" style="width: 9%;">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="zmdi zmdi-refresh"></i></button>
+                                
+            <div class="modal fade" id="myModal" role="dialog">
+    		<div class="modal-dialog">
+    
+      <!-- Modal content-->
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				  <h4 class="modal-title">Actualizar Información de Docente</h4>
+				</div>
+				<div class="modal-body">
+				  <p>
+					 <legend><strong>Información del docente; Fulanito</strong></legend><br>
+
+					 <div class="group-material">
+                                <input type="text" class="material-control tooltips-general" placeholder="Aquí aparecerá la dirección del docente" pattern="[0-9]{8,8}" required="" maxlength="18" data-toggle="tooltip" data-placement="top" title="Escribe solo calle y número">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Dirección (Calle y Número)</label>
+                           </div>
+                           
+                           <div class="group-material">
+                                <input type="text" class="material-control tooltips-general" placeholder="Aquí aparecerá la Colonia del docente" pattern="[0-9]{8,8}" required="" maxlength="18" data-toggle="tooltip" data-placement="top" title="Escribe solo colonia">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Colonia</label>
+                            </div>
+                            
+                             <div class="group-material">
+                                <input type="text" class="material-control tooltips-general" placeholder="Escribe aquí la delegación o municipio del docente" pattern="[0-9]{8,8}" required="" maxlength="18" data-toggle="tooltip" data-placement="top" title="Escribe la delegación o municipio">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Delegación o Municipio</label>
+                            </div>
+                           
+                            <div class="group-material">
+                                <input type="text" class="material-control tooltips-general" placeholder="Aquí aparecerá el código postal del docente" pattern="[0-9]{8,8}" required="" maxlength="18" data-toggle="tooltip" data-placement="top" title="Escribe el C.P.">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Código Postal</label>
+                            </div>
+                            
+                             <div class="group-material">
+                                <input type="text" class="material-control tooltips-general" placeholder="Aquí aparecerá el número telefónico del docente" pattern="[0-9]{8,8}" required="" maxlength="18" data-toggle="tooltip" data-placement="top" title="8 Digitos Local 10 Dígitos Celular">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Teléfono de Contacto </label>
+                            </div>
+					
+					 		<legend>Datos Académicos</legend>
+                            <div class="group-material">
+                                <span>Departamento dentro de la Escuela</span>
+                                <select class="material-control tooltips-general" data-toggle="tooltip" data-placement="top" title="Elige el departamento al que pertenece el docente">
+                                    <option value="" disabled="" selected="">Aquí aparecerá el departamento al que pertenece</option>
+                                    <option value="Seccion">Formación Básica</option>
+                                    <option value="Seccion">Ciencias e ingenieria de la computación</option>
+                                    <option value="Seccion">Ingenieria en sistemas computacionales</option>
+                                    <option value="Seccion">Formación integral e institucional</option>
+                                </select>
+                            </div>
+ 
+                           <legend>Actualizar datos de inicio de sesión</legend>
+                           <div class="group-material">
+                                <input type="text" class="material-control tooltips-general" placeholder="Aquí aparecerá el correo electrónico del docente" pattern="[0-9]{8,8}" required="" maxlength="18" data-toggle="tooltip" data-placement="top" title="Con este correo podrás inciar sesión">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Correo Electrónico</label>
+                            </div>
+                            
+                               <div class="group-material">
+                                <input type="password" class="material-control tooltips-general" placeholder="Aquí aparecerá la contraseña del docente" pattern="[0-9]{8,8}" required="" maxlength="18" data-toggle="tooltip" data-placement="top" title="Escribe la contraseña del estudiante">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Contraseña</label>
+                              </div>
+                              <div class="group-material">
+                                <input type="password" class="material-control tooltips-general"  pattern="[0-9]{8,8}" required="" maxlength="18" data-toggle="tooltip" data-placement="top" title="Escribe nuevamente la contraseña del docente">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Confirmar Contraseña</label>
+                              </div>
+					</p>
+				</div>
+				<div class="modal-footer">
+                   <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Cancelar</button>
+                   <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Actualizar</button>
+				</div>       
+			  </div>
+    		</div>
+  		</div>                  
+            </div>
+                            <div class="div-table-cell" style="width: 9%;">
+                                <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="table-responsive">
+                    <div class="div-table" style="margin:0 !important;">
+                        <div class="div-table-row div-table-row-list">
+                              <div class="div-table-cell" style="width: 6%;">#Empleado</div>
+                        <div class="div-table-cell" style="width: 15%;">Departamento</div>
+                        <div class="div-table-cell" style="width: 15%;">Apellidos</div>
+                        <div class="div-table-cell" style="width: 15%;">Nombres</div>
+                        <div class="div-table-cell" style="width: 12%;">Teléfono</div>
+                            <div class="div-table-cell" style="width: 9%;">
+                                <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
+                            </div>
+                            <div class="div-table-cell" style="width: 9%;">
+                                <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <div class="div-table" style="margin:0 !important;">
+                        <div class="div-table-row div-table-row-list">
+                              <div class="div-table-cell" style="width: 6%;">#Empleado</div>
+                        <div class="div-table-cell" style="width: 15%;">Departamento</div>
+                        <div class="div-table-cell" style="width: 15%;">Apellidos</div>
+                        <div class="div-table-cell" style="width: 15%;">Nombres</div>
+                        <div class="div-table-cell" style="width: 12%;">Teléfono</div>
+                            <div class="div-table-cell" style="width: 9%;">
+                                <button class="btn btn-success"><i class="zmdi zmdi-refresh"></i></button>
+                            </div>
+                            <div class="div-table-cell" style="width: 9%;">
+                                <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>

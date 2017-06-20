@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Audiovisual" table="audiovisual" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idAudioVisual" type="int">
+            <column name="idAudioVisual" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="elemento" class="com.ipn.mx.escom.biblioteca.Pojos.Elemento" fetch="select">
+            <column name="Elemento_idElemento" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoAudiovisual" class="com.ipn.mx.escom.biblioteca.Pojos.TipoAudiovisual" fetch="select">
+            <column name="Audiovisual_tipoAudiovisual" not-null="true" />
+        </many-to-one>
+        <property name="titulo" type="string">
+            <column name="Titulo" length="45" not-null="true" />
+        </property>
+        <property name="autor1" type="string">
+            <column name="Autor1" length="45" not-null="true" />
+        </property>
+        <property name="autor2" type="string">
+            <column name="Autor2" length="45" />
+        </property>
+        <property name="autor3" type="string">
+            <column name="Autor3" length="45" />
+        </property>
+        <property name="autor4" type="string">
+            <column name="`Autor 4`" length="45" />
+        </property>
+        <property name="fechaPub" type="string">
+            <column name="FechaPub" length="45" not-null="true" />
+        </property>
+        <property name="duracion" type="string">
+            <column name="Duracion" length="45" not-null="true" />
+        </property>
+        <property name="precio" type="double">
+            <column name="Precio" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="estadoBorrado" type="java.lang.Integer">
+            <column name="EstadoBorrado" />
+        </property>
+    </class>
+</hibernate-mapping>

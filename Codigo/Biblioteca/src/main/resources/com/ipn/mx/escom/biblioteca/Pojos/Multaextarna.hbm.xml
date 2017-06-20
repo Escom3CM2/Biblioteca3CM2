@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Multaextarna" table="multaextarna" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idMultaExtarna" type="java.lang.Integer">
+            <column name="idMultaExtarna" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="prestamoexterno" class="com.ipn.mx.escom.biblioteca.Pojos.Prestamoexterno" fetch="select">
+            <column name="PrestamoExterno_idPrestamoExterno" not-null="true" />
+        </many-to-one>
+        <property name="monto" type="double">
+            <column name="Monto" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="FechaInicio" length="10" not-null="true" />
+        </property>
+        <property name="fechaPago" type="date">
+            <column name="FechaPago" length="10" not-null="true" />
+        </property>
+        <property name="estado" type="int">
+            <column name="Estado" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

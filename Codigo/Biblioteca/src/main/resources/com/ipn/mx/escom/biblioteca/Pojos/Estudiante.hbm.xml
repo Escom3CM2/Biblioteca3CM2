@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Estudiante" table="estudiante" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="boleta" type="string">
+            <column name="Boleta" length="45" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="estadoestudiante" class="com.ipn.mx.escom.biblioteca.Pojos.Estadoestudiante" fetch="select">
+            <column name="EstadoEstudiante_idEdoEst" not-null="true" />
+        </many-to-one>
+        <many-to-one name="lector" class="com.ipn.mx.escom.biblioteca.Pojos.Lector" fetch="select">
+            <column name="Lector_idLector" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoestudiante" class="com.ipn.mx.escom.biblioteca.Pojos.Tipoestudiante" fetch="select">
+            <column name="TipoEstudiante_idTipoEs" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="45" not-null="true" />
+        </property>
+        <property name="primerApellido" type="string">
+            <column name="PrimerApellido" length="45" not-null="true" />
+        </property>
+        <property name="segundoApellido" type="string">
+            <column name="SegundoApellido" length="45" not-null="true" />
+        </property>
+        <property name="curp" type="string">
+            <column name="CURP" length="45" not-null="true" />
+        </property>
+        <property name="fechaNac" type="string">
+            <column name="FechaNac" length="45" not-null="true" />
+        </property>
+        <set name="datosacademicoses" table="datosacademicos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Estudiante_Boleta" length="45" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Datosacademicos" />
+        </set>
+    </class>
+</hibernate-mapping>

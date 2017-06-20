@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+          
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Empleados registrados</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:dialog widgetVar="Prestamos" header="Prestamos">
+                <p:dataTable value="#{consultas.Prestamos(login.matricula)}" var="prestamo" > 
+                    <p:column headerText="Titulo">
+                        <h:outputText value="#{consultas.libro(prestamo).titulo }" />
+                    </p:column> 
+                    <p:column headerText="Autor">
+                        <h:outputText value="#{consultas.libro(prestamo).autor1 }" />
+                    </p:column> 
+                    <p:column headerText="Fecha de prestamo">
+                        <h:outputText value="#{prestamo.fechaInicio }" />
+                    </p:column> 
+                    <p:column headerText="Fecha de devolucion">
+                        <h:outputText value="#{prestamo.fechaFin }" />
+                    </p:column>         
+                </p:dataTable>
+            </p:dialog>
+
+            <p:dialog widgetVar="Pendientes" header="Devolcciones">
+                <p:dataTable value="#{consultas.Pendientes(login.matricula)}" var="prestamo" > 
+                    
+                    <p:column headerText="Titulo">
+                        <h:outputText value="#{consultas.libro(prestamo).titulo }" />
+                    </p:column> 
+                    <p:column headerText="Autor">
+                        <h:outputText value="#{consultas.libro(prestamo).autor1 }" />
+                    </p:column> 
+                    <p:column headerText="Fecha de prestamo">
+                        <h:outputText value="#{prestamo.fechaInicio }" />
+                    </p:column> 
+                    <p:column headerText="Fecha de devolucion">
+                        <h:outputText value="#{prestamo.fechaFin }" />
+                    </p:column> 
+                   
+                    
+                </p:dataTable>
+            </p:dialog>
+                <p:commandButton value="# #{consultas.numeroPrestamos(login.matricula) }"  onclick="PF('Prestamos').show();"  />
+                <p:commandButton value="# #{consultas.numeroPendientes(login.matricula) }"  onclick="PF('Pendientes').show();"  />
+                <p:inputText value="#{credencials.boleta}" />
+                        <p:commandButton  value="Generar credencial" action="#{credencials.GenerarCredencial(login.matricula) }"   />
+                        <p:button  value="Renovar"  outcome="Renovar"  />
+
+            <p:commandButton action="#{login.logOut()}" value="Salir" />
+        </h:form>
+    </h:body>
+</html>
+

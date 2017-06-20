@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Colonia" table="colonia" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idColonia" type="int">
+            <column name="idColonia" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cp" class="com.ipn.mx.escom.biblioteca.Pojos.Cp" fetch="select">
+            <column name="CP_idCP" not-null="true" />
+        </many-to-one>
+        <many-to-one name="delegacion" class="com.ipn.mx.escom.biblioteca.Pojos.Delegacion" fetch="select">
+            <column name="Delegacion_idDelegacion" not-null="true" />
+        </many-to-one>
+        <property name="nombreCol" type="string">
+            <column name="NombreCol" length="45" not-null="true" />
+        </property>
+        <set name="contactos" table="contacto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Colonia_idColonia" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Contacto" />
+        </set>
+    </class>
+</hibernate-mapping>

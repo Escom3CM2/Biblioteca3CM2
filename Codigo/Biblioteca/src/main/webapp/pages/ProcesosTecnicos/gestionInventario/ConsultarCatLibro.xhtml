@@ -1,0 +1,137 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+          
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+    <title>regStudent</title>
+    <meta charset="UTF-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <link rel="Shortcut Icon" type="image/x-icon" href="../../../assets/icons/book.ico" ></link>
+    <script src="../../../js/sweet-alert.min.js"></script>
+    <link rel="stylesheet" href="../../../css/sweet-alert.css"></link>
+    <link rel="stylesheet" href="../../../css/material-design-iconic-font.min.css"></link>
+    <link rel="stylesheet" href="../../../css/normalize.css"></link>
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="../../../css/jquery.mCustomScrollbar.css"></link>
+    <link rel="stylesheet" href="../../../css/style.css"></link>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../../../js/jquery-1.11.2.min.js"></script>
+    <script src="../../../js/modernizr.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../../js/main.js"></script>
+</h:head>
+<h:body>
+    <ui:insert>
+            <ui:include src="../../../templates/procesosSide.xhtml" />
+        </ui:insert>
+    
+        <div class="content-page-container full-reset custom-scroll-containers">
+        
+            <ui:insert>
+                <ui:include src="../../../templates/top.xhtml" />
+            </ui:insert>
+            
+        <div class="container">
+            <div class="page-header">
+              <h1 class="all-tittles">Control de Inventario</h1>
+            </div>
+        </div>
+        
+        <div class="title-flat-form title-flat-blue">Consultar Catalogo de Libro</div>
+        
+        <div class="container-fluid"  style="margin: 50px 0;">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
+                  Ingrese el ISBN del libro que desea consultar con el formato correspondiente
+                </div>
+            </div>
+        </div>
+
+          <div class="container-fluid">
+                
+                     <div class="col-xs-16 col-sm-8 col-sm-offset-2">
+                            <div class="group-material">
+                                <!--<input type="text" class="material-control tooltips-general" placeholder="#ISBN" required="" maxlength="70" pattern="[0-9]{1,6}[-][0-9]{1,6}[-][0-9]{1,6}" data-toggle="tooltip" data-placement="top" tittle="Ingrese el ISBN del libro que desea consultar">
+                                <span class="highlight"></span>
+                                <span class="bar"></span>                                
+                                <label>ISBN del Libro</label>
+                                </br>
+                                <p class="text-center">
+                                    <button type="submit" class="btn btn-primary">Consultar </button>
+                                </p>-->
+
+                            </div>
+
+                            <div class="table-responsive">
+                              <table class="table table-striped">
+                              <caption align="center"><h3>Catalogo De Libro</h3></caption>
+                                <tbody>
+                                    <tr>
+                                        <th>Datos</th>
+                                        <th> Informacion</th>
+                                    </tr>
+                                    <tr>
+                                        <td>ISBN</td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Titulo</td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Autor</td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Editorial</td>
+                                        <td> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fecha de Publicacion</td>
+                                        <td> </td>
+                                    </tr><tr>
+                                        <td>Numero de Paginas</td>
+                                        <td> </td>
+                                    </tr>     <tr>
+                                        <td>Existencias</td>
+                                        <td> </td>
+                                    </tr>    
+                                     <tr>
+                                        <td>Precio</td>
+                                        <td> </td>
+                                    </tr>                            
+                                </tbody>
+                              </table>
+                            </div>
+                            
+                
+                            <p class="text-center">
+                                <button type="submit" class="btn btn-primary" onclick="self.location.href='ModificarLibro.html'">Modificar Catalogo</button>
+                            </p>
+                         
+                             
+                            <p:dataTable var="libro" value="#{libros.showAll()}" id="libros">
+                                <p:column headerText="ID">
+                                    <h:outputText value="#{libro.isbnId}" />
+                                </p:column>
+
+                                <p:column headerText="Estado">
+                                    <h:outputText value="Disponible" />
+                                </p:column>
+
+                                <p:column headerText="Selecion">
+                                    <h:form>
+                                        <p:commandButton value="Eliminar" action="#{libros.eliminarID(libro.isbnId)}" update="libros" ajax="true"/>
+                                    </h:form>
+                                    
+                                </p:column>
+                            </p:dataTable>   
+                            </div>
+          </div>
+    </div>
+</h:body>
+</html>

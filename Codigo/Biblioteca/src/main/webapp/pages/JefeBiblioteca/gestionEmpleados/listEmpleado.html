@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Administradores</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="Shortcut Icon" type="image/x-icon" href="../../../assets/icons/book.ico" />
+    <script src="../../../js/sweet-alert.min.js"></script>
+    <link rel="stylesheet" href="../../../css/sweet-alert.css">
+    <link rel="stylesheet" href="../../../css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="../../../css/normalize.css">
+    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../../js/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="../../../js/modernizr.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../../../js/main.js"></script>
+</head>
+<body>
+    <div class="navbar-lateral full-reset">
+        <div class="visible-xs font-movile-menu mobile-menu-button"></div>
+        <div class="full-reset container-menu-movile custom-scroll-containers">
+            <div class="logo full-reset all-tittles">
+                <i class="visible-xs zmdi zmdi-close pull-left mobile-menu-button" style="line-height: 55px; cursor: pointer; padding: 0 10px; margin-left: 7px;"></i> 
+                sistema bibliotecario
+            </div>
+            <div class="full-reset" style="background-color:#2B3D51; padding: 10px 0; color:#fff;">
+                <figure>
+                    <img src="../../../assets/img/logo.png" alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
+                </figure>
+                <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
+            </div>
+            <div class="full-reset nav-lateral-list-menu">
+                <ul class="list-unstyled">
+                    <li><a href="../gestionUsuarios/home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
+                    <li><a href="regEmpleado.html"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Agregar Empleado</a></li>
+                    <li><a href="listEmpleado.html"><i class="zmdi zmdi-accounts-list zmdi-hc-fw"></i>&nbsp;&nbsp; Lista deEmpleados</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-page-container full-reset custom-scroll-containers">
+        <nav class="navbar-user-top full-reset">
+            <ul class="list-unstyled full-reset">
+                <figure>
+                   <img src="../../../assets/img/user01.png" alt="user-picture" class="img-responsive img-circle center-box">
+                </figure>
+                <li style="color:#fff; cursor:default;">
+                    <span class="all-tittles">Admin Name</span>
+                </li>
+                <li  class="tooltips-general exit-system-button" data-href="index.html" data-placement="bottom" title="Salir del sistema">
+                    <i class="zmdi zmdi-power"></i>
+                </li>
+                <li  class="tooltips-general search-book-button" data-href="searchbook.html" data-placement="bottom" title="Buscar libro">
+                    <i class="zmdi zmdi-search"></i>
+                </li>
+                <li  class="tooltips-general btn-help" data-placement="bottom" title="Ayuda">
+                    <i class="zmdi zmdi-help-outline zmdi-hc-fw"></i>
+                </li>
+                <li class="mobile-menu-button visible-xs" style="float: left !important;">
+                    <i class="zmdi zmdi-menu"></i>
+                </li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="page-header">
+              <h1 class="all-tittles">Sistema bibliotecario <small>Gestión de empleados</small></h1>
+            </div>
+        </div>
+        
+        <div class="title-flat-form title-flat-blue">Listado de empleados</div>
+        
+        <div class="container-fluid"  style="margin: 50px 0;">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <img src="../../../assets/img/user01.png" alt="user" class="img-responsive center-box" style="max-width: 110px;">
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
+                   Bienvenido al listado de empleados, podrás ver los empleados que se encuentran registrados así como modificar u eliminar alguno.
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Rol</th>
+                    <th>Estatus</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Carlos Salgado</td>
+                    <td>5566778899</td>
+                    <td>carlos@empleado.com</td>
+                    <td><i class="zmdi zmdi-check"></i></td>
+                    <td>
+                        <button class="btn btn-primary" onclick="window.location = 'editEmpleado.html'" ><i class="zmdi zmdi-edit"></i></button>
+                        <button class="btn btn-danger delete-user-employer"><i class="zmdi zmdi-delete"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Josue Duran</td>
+                    <td>5599334411</td>
+                    <td>josue@empleado.com</td>
+                    <td><i class="zmdi zmdi-minus"></i></td>
+                    <td>
+                        <button class="btn btn-primary" onclick="window.location = 'editEmpleado.html'"><i class="zmdi zmdi-edit"></i></button>
+                        <button class="btn btn-danger delete-user-employer"><i class="zmdi zmdi-delete"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Empleado demo</td>
+                    <td>5500991122</td>
+                    <td>demo@empleado.com</td>
+                    <td><i class="zmdi zmdi-check"></i></td>
+                    <td>
+                        <button class="btn btn-primary"><i class="zmdi zmdi-edit"></i></button>
+                        <button class="btn btn-danger delete-user-employer"><i class="zmdi zmdi-delete"></i></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div> 
+    </div>
+</body>
+</html>

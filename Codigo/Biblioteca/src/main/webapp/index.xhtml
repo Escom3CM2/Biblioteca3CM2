@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      >
+
+<h:head>
+    <title>Inicio de sesión</title>
+    <link rel="Shortcut Icon" type="image/x-icon" href="assets/icons/book.ico" />
+    <script src="js/sweet-alert.min.js"></script>
+    <link rel="stylesheet" href="css/sweet-alert.css"></link>
+    <link rel="stylesheet" href="css/material-design-iconic-font.min.css"></link>
+    <link rel="stylesheet" href="css/normalize.css"></link>
+    <link rel="stylesheet" href="css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css"></link>
+    <link rel="stylesheet" href="css/style.css"></link>
+    <link rel="stylesheet" href="css/login.css"></link>
+    <script src="js/modernizr.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/main.js"></script>
+    
+</h:head>
+<h:body class="full-cover-background" style="background-image:url(assets/img/font-login.jpg);">
+    <div class="form-container">
+        <p class="text-center" style="margin-top: 17px;">
+           <i class="zmdi zmdi-account-circle zmdi-hc-5x"></i>
+       </p>
+       <h4 class="text-center all-tittles" style="margin-bottom: 30px;">inicia sesión con tu cuenta</h4>
+       <h:form>
+            <p:panel header="Login" id="Votos"  >
+                <p:messages  autoUpdate="true" closable="true"/>
+            </p:panel>
+            <div class="group-material-login">
+              <input type="text" class="material-login-control" required="" maxlength="70" id="mail" value="#{login.matricula}"/>
+              <span class="highlight-login"></span>
+              <span class="bar-login"></span>
+              <label><i class="zmdi zmdi-account"></i>Correo Electrónico</label>
+            </div><br/>
+            <div class="group-material-login">
+                <input type="password" class="material-login-control" required="" maxlength="70" value="#{login.password}" />
+              <span class="highlight-login"></span>
+              <span class="bar-login"></span>
+              <label><i class="zmdi zmdi-lock"></i>Contraseña</label>
+            </div>
+            <button action="#{login.log()}" class="btn-login">Ingresar al sistema 
+                <i class="zmdi zmdi-arrow-right"></i>
+            </button>
+        </h:form>
+    </div>  
+</h:body>
+</html>

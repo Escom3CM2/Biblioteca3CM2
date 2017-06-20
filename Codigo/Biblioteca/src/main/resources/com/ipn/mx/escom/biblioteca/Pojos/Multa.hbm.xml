@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Multa" table="multa" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idMulta" type="int">
+            <column name="idMulta" />
+            <generator class="assigned" />
+        </id>
+        <property name="monto" type="double">
+            <column name="Monto" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="FechaInicio" length="10" not-null="true" />
+        </property>
+        <property name="fechaPago" type="date">
+            <column name="FechaPago" length="10" not-null="true" />
+        </property>
+        <property name="estado" type="int">
+            <column name="Estado" not-null="true" />
+        </property>
+        <set name="dmultaejes" table="dmultaeje" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Multa_idMulta" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Dmultaeje" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Computo" table="computo" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idComputadora" type="int">
+            <column name="idComputadora" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="elemento" class="com.ipn.mx.escom.biblioteca.Pojos.Elemento" fetch="select">
+            <column name="Elemento_idElemento" />
+        </many-to-one>
+        <property name="noSerieMonitor" type="string">
+            <column name="noSerieMonitor" length="45" not-null="true" />
+        </property>
+        <property name="noSerieCpu" type="string">
+            <column name="noSerieCpu" length="45" not-null="true" />
+        </property>
+        <property name="noSerieTeclado" type="string">
+            <column name="noSerieTeclado" length="45" not-null="true" />
+        </property>
+        <property name="noSerieMouse" type="string">
+            <column name="noSerieMouse" length="45" not-null="true" />
+        </property>
+        <property name="precioCpu" type="double">
+            <column name="PrecioCpu" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="precioMonitor" type="string">
+            <column name="PrecioMonitor" length="45" not-null="true" />
+        </property>
+        <property name="precioMouse" type="string">
+            <column name="PrecioMouse" length="45" not-null="true" />
+        </property>
+        <property name="precioTeclado" type="string">
+            <column name="PrecioTeclado" length="45" not-null="true" />
+        </property>
+        <property name="estadoBorrado" type="java.lang.Integer">
+            <column name="EstadoBorrado" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="proyectobiblioteca"/>
+  <table-filter match-name="estadolibro"/>
+  <table-filter match-name="contacto"/>
+  <table-filter match-name="elemento"/>
+  <table-filter match-name="multa"/>
+  <table-filter match-name="rolempleado"/>
+  <table-filter match-name="tipoestudiante"/>
+  <table-filter match-name="prestamoexterno"/>
+  <table-filter match-name="docente"/>
+  <table-filter match-name="lector"/>
+  <table-filter match-name="ejemplar"/>
+  <table-filter match-name="prestamo"/>
+  <table-filter match-name="estadoestudiante"/>
+  <table-filter match-name="multaextarna"/>
+  <table-filter match-name="estadoempleado"/>
+  <table-filter match-name="tt"/>
+  <table-filter match-name="credencial"/>
+  <table-filter match-name="d_presot"/>
+  <table-filter match-name="colonia"/>
+  <table-filter match-name="prestamointer"/>
+  <table-filter match-name="d_prestamo"/>
+  <table-filter match-name="cp"/>
+  <table-filter match-name="tipo_audiovisual"/>
+  <table-filter match-name="computo"/>
+  <table-filter match-name="escuela"/>
+  <table-filter match-name="estadoelemnto"/>
+  <table-filter match-name="audiovisual"/>
+  <table-filter match-name="empleado"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="tipomulta"/>
+  <table-filter match-name="dmultaeje"/>
+  <table-filter match-name="datosacademicos"/>
+  <table-filter match-name="delegacion"/>
+  <table-filter match-name="libro"/>
+  <table-filter match-name="prestamootros"/>
+  <table-filter match-name="estudiante"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+          
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Empleados registrados</title>
+    </h:head>
+    <h:body>
+    <h:form>
+
+        <p:dataTable value="#{catalogos.showAll()}" var="e" paginator="true" rowsPerPageLabel="Empleados" rows="2" id="Tabla"  >
+            <p:column>
+                <f:facet name="header">Nombre</f:facet>
+                #{e.nombre}
+            </p:column>
+           
+            <p:column>
+                <f:facet name="header">Rol</f:facet>
+                #{e.rolempleado.rolEmp}
+            </p:column>
+            
+             <p:column>
+                <f:facet name="header">Estado</f:facet>
+                #{e.estadoempleado.edoEmp}
+            </p:column>
+            
+            <p:column>
+                <f:facet name="header">Matricula</f:facet>
+                #{e.usuario.matricula}
+            </p:column>
+            <p:column colspan="2">
+                <f:facet name="header">Acciones</f:facet>
+               
+                <p:commandButton value="Borrar" actionListener="#{catalogos.deletById(e.idEmpleado)}" update=" Tabla">
+                        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+                </p:commandButton>
+        
+ 
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                </p:confirmDialog>
+                
+                 <p:commandButton id="empInf" value="Modificar" type="button" />
+                    <p:overlayPanel id="empInfo" for="empInf" hideEffect="fade" dynamic="true" style="width:600px" >
+                        <h:panelGrid columns="2" columnClasses="column" cellpadding="5" id="inf">
+                       
+                        
+                        
+                         <h:outputLabel for="rol" value="rol"/>
+                         <p:inplace id="rol" label="#{e.rolempleado.rolEmp}" effectSpeed="fast" >
+                            <p:selectOneMenu value="#{empleados.idRol}">
+                             <f:selectItems value="#{catalogos.showrolempleado()}"  var="r" itemLabel="#{r.rolEmp}" itemValue="#{r.idRolEmpleado}"/>
+                            </p:selectOneMenu>
+                         </p:inplace>
+    
+                        <h:outputLabel for="Estado" value="Estado de empleado:"/>
+                        <p:inplace id="Estado" label="#{e.estadoempleado.edoEmp}" effectSpeed="fast" >
+                            <p:selectOneMenu value="#{empleados.idEdo}">
+                             <f:selectItems value="#{catalogos.showEstadoempleado()}"  var="es" itemLabel="#{es.edoEmp}" itemValue="#{es.idEdoEmp}"/>
+                            </p:selectOneMenu>
+                        </p:inplace>
+                         
+                        <p:commandButton actionListener="#{empleados.update(e.idEmpleado)}" value="Actualizar" update="Tabla" />
+                        
+                     </h:panelGrid>
+                    </p:overlayPanel>
+            </p:column>
+        </p:dataTable>
+        
+    
+        
+        
+    </h:form>
+        <h:link outcome="addEmpleado" value="Agregar usuario" />
+    </h:body>
+</html>

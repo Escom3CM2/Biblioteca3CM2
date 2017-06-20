@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Libro" table="libro" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="isbnId" type="string">
+            <column name="ISBN_ID" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="titulo" type="string">
+            <column name="Titulo" length="45" not-null="true" />
+        </property>
+        <property name="autor1" type="string">
+            <column name="Autor1" length="45" not-null="true" />
+        </property>
+        <property name="autor2" type="string">
+            <column name="Autor2" length="45" />
+        </property>
+        <property name="autor3" type="string">
+            <column name="Autor3" length="45" />
+        </property>
+        <property name="autor4" type="string">
+            <column name="Autor4" length="45" />
+        </property>
+        <property name="editorial" type="string">
+            <column name="Editorial" length="45" not-null="true" />
+        </property>
+        <property name="fechaPub" type="string">
+            <column name="FechaPub" length="45" not-null="true" />
+        </property>
+        <property name="noPags" type="int">
+            <column name="NoPags" not-null="true" />
+        </property>
+        <property name="edicion" type="int">
+            <column name="Edicion" not-null="true" />
+        </property>
+        <property name="precio" type="double">
+            <column name="Precio" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="estadoBorrado" type="java.lang.Integer">
+            <column name="EstadoBorrado" />
+        </property>
+        <set name="ejemplars" table="ejemplar" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Libro_ISBN_ID" length="45" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Ejemplar" />
+        </set>
+        <set name="tipoAudiovisuals" table="tipo_audiovisual" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Libro_ISBNID" length="45" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.TipoAudiovisual" />
+        </set>
+    </class>
+</hibernate-mapping>

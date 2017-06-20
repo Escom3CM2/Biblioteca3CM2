@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Prestamointer" table="prestamointer" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idPrestamoInter" type="int">
+            <column name="idPrestamoInter" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="escuela" class="com.ipn.mx.escom.biblioteca.Pojos.Escuela" fetch="select">
+            <column name="Escuela_idEscuela" not-null="true" />
+        </many-to-one>
+        <many-to-one name="lector" class="com.ipn.mx.escom.biblioteca.Pojos.Lector" fetch="select">
+            <column name="Lector_idLector" not-null="true" />
+        </many-to-one>
+        <property name="titulo" type="string">
+            <column name="Titulo" length="45" not-null="true" />
+        </property>
+        <property name="autor" type="string">
+            <column name="Autor" length="45" not-null="true" />
+        </property>
+        <property name="edicion" type="string">
+            <column name="Edicion" length="45" not-null="true" />
+        </property>
+        <property name="publicacion" type="int">
+            <column name="Publicacion" not-null="true" />
+        </property>
+        <property name="editorial" type="string">
+            <column name="Editorial" length="45" not-null="true" />
+        </property>
+        <property name="fechaPrestamo" type="date">
+            <column name="FechaPrestamo" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

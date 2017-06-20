@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+          
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Prestamo Interno</title>
+    </h:head>
+    <h:body>
+   		 					<h:form>
+						    <p:fieldset legend="Informacion" style="margin-bottom:20px">
+						        <p:growl id="growl2" showDetail="true" sticky="true" /> 
+						        <h:panelGrid columns="4" cellpadding="5">
+						        
+							         <h:outputText  value="ID Lector :" />
+							         <p:inputText  id="idLec" value="#{prestamoInter.idLect}"    />
+							           <p:commandButton value="Verificar Lector" action="#{prestamoInter.initDatos()}"  update="info growl2" ajax="false" />
+									   <p:commandButton value="Limpiar" action="#{prestamoInter.clear()}"   ajax="false" />
+			
+						        </h:panelGrid>
+						      
+						        <h:panelGrid columns="2" 	cellpadding="5" id="info">
+								            <h:outputText  value="Nombre del Lector :" />
+								            <h:outputText  value="#{prestamoInter.nombreLect}" />
+								            <h:outputText  value="Matricula de Lector: " />
+								            <h:outputText  value="#{prestamoInter.matricula}" />
+						        </h:panelGrid>
+						    </p:fieldset>
+					    </h:form>
+				    <h:form  rendered="#{prestamoInter.l!=null}" >    
+				    <p:growl id="growl" showDetail="true" sticky="true" />  
+					    <h:panelGrid  columns="2" cellpadding="5" >
+						    <p:outputLabel   for="idMat" value="ID de Material"    />
+							<p:inputText  id="idMat" value="#{prestamoInter.idVal}"  required="true"  />
+							<p:outputLabel   for="idOb" value="Observaciones :"    />
+							<p:inputText  id="idOb" value="#{prestamoInter.observ}"    />
+							<p:outputLabel   for="typeMat" value="Tipo de Material :"    />
+							
+					        <p:selectOneMenu id="typeMat" value="#{prestamoInter.selectedTipo}" style="width:125px">
+						              <f:selectItems value="#{prestamoInter.type}"  />
+						    </p:selectOneMenu>
+						    <p:commandButton value="Registrar" action="#{prestamoInter.registrar()}" update="growl Prestamos" />
+	
+						</h:panelGrid>
+			
+  	 <p:dataTable value="#{prestamoInter.material}" var="m" paginator="true" rowsPerPageLabel="Materiales" rows="5" id="Prestamos"   >
+            <p:column>
+                <f:facet name="header">ID</f:facet>
+                #{m.id}
+            </p:column>
+           
+            <p:column>
+                <f:facet name="header">Titulo</f:facet>
+                #{m.titulo}
+            </p:column>
+            
+             <p:column>
+                <f:facet name="header">Fecha Devolución</f:facet>
+                #{prestamoInter.setformatoFecha(m.fechaEntrega,m.tipo)}
+            </p:column>
+            
+            <p:column>
+                <f:facet name="header">Observaciones</f:facet>
+                #{m.observaciones}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Tipo</f:facet>
+                #{m.tipo}
+            </p:column>
+            <p:column colspan="2">
+                <f:facet name="header">Acciones</f:facet>
+               
+                <p:commandButton value="Borrar" actionListener="#{ prestamoInter.borrarIDTipo(m.id,m.tipo)}" update="Prestamos">
+                        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+                </p:commandButton>
+        
+ 
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                </p:confirmDialog>
+                
+                 
+            </p:column>
+        </p:dataTable>
+	
+	<p:commandButton value="Registrar Prestamos" action="#{prestamoInter.registrarPrestamos()}" update="Prestamos growl"/>
+</h:form>					    
+   		 		
+   	
+   
+   
+    </h:body>
+</html>

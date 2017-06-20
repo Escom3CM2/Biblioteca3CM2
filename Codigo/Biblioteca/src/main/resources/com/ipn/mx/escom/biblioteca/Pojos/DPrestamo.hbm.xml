@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.DPrestamo" table="d_prestamo" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idDPrestamo" type="int">
+            <column name="idD_Prestamo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ejemplar" class="com.ipn.mx.escom.biblioteca.Pojos.Ejemplar" fetch="select">
+            <column name="Ejemplar_idEjemplar" not-null="true" />
+        </many-to-one>
+        <many-to-one name="prestamo" class="com.ipn.mx.escom.biblioteca.Pojos.Prestamo" fetch="select">
+            <column name="Prestamo_idPrestamo" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

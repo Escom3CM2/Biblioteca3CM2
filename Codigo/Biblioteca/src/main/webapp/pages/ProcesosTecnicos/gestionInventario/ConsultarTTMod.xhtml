@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      >
+
+    <h:head>
+        <title>Registrar TT</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="Shortcut Icon" type="image/x-icon" href="../../../assets/icons/book.ico" ></link>
+        <script src="../../../js/sweet-alert.min.js"></script>
+        <script src="../../../js/custom.js"></script>
+        <link rel="stylesheet" href="../../../css/sweet-alert.css"></link>
+        <link rel="stylesheet" href="../../../css/material-design-iconic-font.min.css"></link>
+        <link rel="stylesheet" href="../../../css/normalize.css"></link>
+        <link rel="stylesheet" href="../../../css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="../../../css/jquery.mCustomScrollbar.css"></link>
+        <link rel="stylesheet" href="../../../css/style.css"></link>
+        <script name="jquery/jquery.js" library="primefaces"></script>
+
+        <script src="../../../js/modernizr.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="../../../js/main.js"></script>    
+            
+    </h:head>
+    <h:body>
+
+        <ui:insert>
+            <ui:include src="../../../templates/procesosSide.xhtml" />
+        </ui:insert>
+    
+        <div class="content-page-container full-reset">
+        
+            <ui:insert>
+                <ui:include src="../../../templates/top.xhtml" />
+            </ui:insert>
+            <div class="container">
+                <div class="page-header">
+                    <h1 class="all-tittles">Control de Inventario</h1>
+                </div>
+            </div>
+
+            <div class="title-flat-form title-flat-blue">Registrar Libro</div>
+
+            <div class="container-fluid"  style="margin: 50px 0;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
+                        Ingrese los campos requeridos para el registro del Libro
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                Consultar (Para Modificar) TT 
+                <br />      
+
+                <h:form id = "form1">
+
+                    <h:panelGrid columns="2" columnClasses="column" cellpadding="5" id ="inf2">
+                        <h:outputLabel for="noTt" value="Identificador de TT:    " /> 
+                        <p:inputText id="noTt" value="#{tTs.noTt}" a:placeholder="#Identificador"/>
+                    </h:panelGrid>
+
+                    <p:commandButton value="Limpiar" update="inf2" process="@this" style="margin-right:20px;" >
+                        <p:resetInput target="inf2" />
+                    </p:commandButton>
+
+                    <p:commandButton value="Continuar" action="#{tTs.verificarTtMod()}"/>
+
+                    <p:messages id ="messages" showDetail ="true" autoUpdate="true" closable="true"/>
+                </h:form> 
+            </div>
+
+
+        </div>
+
+
+
+    </h:body>
+</html>
+

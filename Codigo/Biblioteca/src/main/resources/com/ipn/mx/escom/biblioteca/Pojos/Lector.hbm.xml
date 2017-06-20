@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Lector" table="lector" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idLector" type="int">
+            <column name="idLector" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="contacto" class="com.ipn.mx.escom.biblioteca.Pojos.Contacto" fetch="select">
+            <column name="Contacto_idContacto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="com.ipn.mx.escom.biblioteca.Pojos.Usuario" fetch="select">
+            <column name="Usuario_Matricula" not-null="true" />
+        </many-to-one>
+        <property name="estadoBorrado" type="java.lang.Integer">
+            <column name="EstadoBorrado" />
+        </property>
+        <set name="docentes" table="docente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Lector_idLector" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Docente" />
+        </set>
+        <set name="credencials" table="credencial" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Lector_idLector" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Credencial" />
+        </set>
+        <set name="estudiantes" table="estudiante" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Lector_idLector" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Estudiante" />
+        </set>
+        <set name="prestamointers" table="prestamointer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Lector_idLector" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Prestamointer" />
+        </set>
+        <set name="prestamootroses" table="prestamootros" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Lector_idLector" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Prestamootros" />
+        </set>
+        <set name="prestamos" table="prestamo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Lector_idLector" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Prestamo" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      >
+
+    <h:head>
+        <title>Lector</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="Shortcut Icon" type="image/x-icon" href="/Biblioteca/assets/icons/book.ico" ></link>
+        <script src="/Biblioteca/js/sweet-alert.min.js"></script>
+        <script src="/Biblioteca/js/custom.js"></script>
+        <link rel="stylesheet" href="/Biblioteca/css/sweet-alert.css"></link>
+        <link rel="stylesheet" href="/Biblioteca/css/material-design-iconic-font.min.css"></link>
+        <link rel="stylesheet" href="/Biblioteca/css/normalize.css"></link>
+        <link rel="stylesheet" href="/Biblioteca/css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="/Biblioteca/css/jquery.mCustomScrollbar.css"></link>
+        <link rel="stylesheet" href="/Biblioteca/css/style.css"></link>
+        <script name="jquery/jquery.js" library="primefaces"></script>
+
+        <script src="/Biblioteca/js/modernizr.js"></script>
+        <script src="/Biblioteca/js/bootstrap.min.js"></script>
+        <script src="/Biblioteca/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="/Biblioteca/js/main.js"></script>    
+
+    </h:head>
+    <h:body>
+
+        <ui:insert>
+            <ui:include src="/templates/lectorSide.xhtml" />
+        </ui:insert>
+
+        <div class="content-page-container full-reset">
+
+            <ui:insert>
+                <ui:include src="/templates/top.xhtml" />
+            </ui:insert>
+            <h:form>
+                <p:dialog widgetVar="Pendientes" header="Devoluciones">
+                    <p:dataTable value="#{consultas.Pendientes(login.matricula)}" var="prestamo" > 
+
+                        <p:column headerText="Titulo">
+                            <h:outputText value="#{consultas.libro(prestamo).titulo }" />
+                        </p:column> 
+                        <p:column headerText="Autor">
+                            <h:outputText value="#{consultas.libro(prestamo).autor1 }" />
+                        </p:column> 
+                        <p:column headerText="Fecha de prestamo">
+                            <h:outputText value="#{prestamo.fechaInicio }" />
+                        </p:column> 
+                        <p:column headerText="Fecha de devolucion">
+                            <h:outputText value="#{prestamo.fechaFin }" />
+                        </p:column> 
+
+
+                    </p:dataTable>
+                </p:dialog>
+                <p:commandButton value="# #{consultas.numeroPendientes(login.matricula) }"  onclick="PF('Pendientes').show();"  />
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

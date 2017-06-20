@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      >
+
+    <h:head>
+        <title>Consultar TT</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <link rel="Shortcut Icon" type="image/x-icon" href="../../../assets/icons/book.ico" ></link>
+        <script src="../../../js/sweet-alert.min.js"></script>
+        <script src="../../../js/custom.js"></script>
+        <link rel="stylesheet" href="../../../css/sweet-alert.css"></link>
+        <link rel="stylesheet" href="../../../css/material-design-iconic-font.min.css"></link>
+        <link rel="stylesheet" href="../../../css/normalize.css"></link>
+        <link rel="stylesheet" href="../../../css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="../../../css/jquery.mCustomScrollbar.css"></link>
+        <link rel="stylesheet" href="../../../css/style.css"></link>
+        <script name="jquery/jquery.js" library="primefaces"></script>
+
+        <script src="../../../js/modernizr.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="../../../js/main.js"></script>   
+    </h:head>
+    <h:body>
+
+        <ui:insert>
+            <ui:include src="../../../templates/controlSide.xhtml" />
+        </ui:insert>
+    
+        <div class="content-page-container full-reset">
+        
+            <ui:insert>
+                <ui:include src="../../../templates/top.xhtml" />
+            </ui:insert>
+    <h:form>
+    <p:panel header="Alumnos" >
+   
+        <p:dataTable value="#{usuarioAlumno.Alumnos()}" var="alumno" paginator="" rowsPerPageLabel="Empleados" rows="" id="Tabla"  >
+            <p:column headerText="Boleta">
+                <h:outputText value="#{alumno.boleta}"/>
+            </p:column>
+            
+            <p:column headerText="Semestre">
+                <h:outputText value="#{usuarioAlumno.Semestre(alumno.boleta)}"/>
+            </p:column>
+            
+            <p:column headerText="Apellidos">
+                <h:outputText value="#{usuarioAlumno.Apellidos(alumno.primerApellido,alumno.segundoApellido) }"/>
+            </p:column>
+            <p:column headerText="Nombre">
+                <h:outputText value="#{alumno.nombre}"/>
+            </p:column>
+            
+            <p:column headerText="Telefono">
+                <h:outputText value="#{usuarioAlumno.Telefono(alumno)}"/>
+            </p:column>
+            
+                <p:column headerText="Actualizar">
+                <p:commandButton value="Modal"  oncomplete="PF('dialogo').show();" actionListener="#{usuarioAlumno.setAlumno(alumno)}" update="Actualizar"/> 
+
+                <p:dialog header="Actualizar informacion" widgetVar="dialogo" modal="true"  width="400" resizable="false"  closable="true" id="Actualizar">
+                    <h:panelGrid columns="2"  >
+                    <h:outputLabel for="basic" value="Nombre:"/>
+                        <p:inputText value="#{usuarioAlumno.nombre}" id="basic" />
+                    <p:commandButton action="#{usuarioAlumno.Modificar(alumno)}" ajax="false" update="Tabla"/>
+                </h:panelGrid>        
+                </p:dialog> 
+            </p:column>
+            
+            <p:column headerText="Eliminar">
+                <p:commandButton  actionListener="#{usuarioAlumno.Eliminar(alumno)}" update="Tabla" icon="ui-icon-refresh">
+                    <p:confirm header="Confirmacion" message="¿Elimininar Alumno?" icon="ui-icon-alert" />
+                </p:commandButton>
+
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:commandButton value="Sí" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                </p:confirmDialog>
+            </p:column>
+            
+            
+            
+            
+        </p:dataTable>
+        
+    
+        
+    </p:panel>
+    </h:form>
+        <h:link outcome="RegistraAlumno" value="Agregar Alumno" />
+        </div>
+    </h:body>
+</html>

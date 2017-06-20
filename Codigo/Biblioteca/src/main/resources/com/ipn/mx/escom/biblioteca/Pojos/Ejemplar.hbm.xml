@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Ejemplar" table="ejemplar" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idEjemplar" type="int">
+            <column name="idEjemplar" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="estadolibro" class="com.ipn.mx.escom.biblioteca.Pojos.Estadolibro" fetch="select">
+            <column name="EstadoLibro_idEdoLibro" not-null="true" />
+        </many-to-one>
+        <many-to-one name="libro" class="com.ipn.mx.escom.biblioteca.Pojos.Libro" fetch="select">
+            <column name="Libro_ISBN_ID" length="45" not-null="true" />
+        </many-to-one>
+        <property name="disponibilidad" type="byte">
+            <column name="Disponibilidad" not-null="true" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="Observaciones" length="45" />
+        </property>
+        <property name="estadoBorrado" type="java.lang.Integer">
+            <column name="EstadoBorrado" />
+        </property>
+        <set name="DPrestamos" table="d_prestamo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Ejemplar_idEjemplar" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.DPrestamo" />
+        </set>
+        <set name="dmultaejes" table="dmultaeje" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Ejemplar_idEjemplar" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Dmultaeje" />
+        </set>
+        <set name="prestamoexternos" table="prestamoexterno" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Ejemplar_idEjemplar" not-null="true" />
+            </key>
+            <one-to-many class="com.ipn.mx.escom.biblioteca.Pojos.Prestamoexterno" />
+        </set>
+    </class>
+</hibernate-mapping>

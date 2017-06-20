@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/05/2017 04:48:07 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.ipn.mx.escom.biblioteca.Pojos.Empleado" table="empleado" catalog="proyectobiblioteca" optimistic-lock="version">
+        <id name="idEmpleado" type="int">
+            <column name="idEmpleado" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="contacto" class="com.ipn.mx.escom.biblioteca.Pojos.Contacto" fetch="select">
+            <column name="Contacto_idContacto" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estadoempleado" class="com.ipn.mx.escom.biblioteca.Pojos.Estadoempleado" fetch="select">
+            <column name="EstadoEmpleado_idEdoEmp" not-null="true" />
+        </many-to-one>
+        <many-to-one name="rolempleado" class="com.ipn.mx.escom.biblioteca.Pojos.Rolempleado" fetch="select">
+            <column name="RolEmpleado_idRolEmpleado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="com.ipn.mx.escom.biblioteca.Pojos.Usuario" fetch="select">
+            <column name="Usuario_Matricula" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="45" not-null="true" />
+        </property>
+        <property name="primerAp" type="string">
+            <column name="PrimerAp" length="45" not-null="true" />
+        </property>
+        <property name="segundoAp" type="string">
+            <column name="SegundoAp" length="45" not-null="true" />
+        </property>
+        <property name="fechaAdmision" type="date">
+            <column name="FechaAdmision" length="10" not-null="true" />
+        </property>
+        <property name="estadoBorrado" type="java.lang.Integer">
+            <column name="EstadoBorrado" />
+        </property>
+    </class>
+</hibernate-mapping>
