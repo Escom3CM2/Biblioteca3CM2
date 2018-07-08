@@ -133,17 +133,96 @@
                         <a href="Prestamo Externo.html" class="btn btn-primary text-center">Préstamos</a>
                         <a href="devolExt.html" class="btn btn-primary text-center">Devoluciones</a>       
                     </div>
+                    <div class="container-fluid">
+            <h2 class="sub-header">Devoluciones Pendientes</h2>
+			<hr>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Material</th>
+                  <th>Fecha préstamo</th>
+                  <th>Tipo</th>
+                  <th>Estado</th>
+                  <th>Observaciones</th>
+                  <th>Devolver</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-danger">
+                  <th scope="row" >Spivak, Cálculo Aplicado....</th>
+                  <td>1/May/2017</td>
+                  <td>Libro</td>
+                  <td>Tardío</td>
+                  <td>Ninguna</td>
+                  <td><span class="mx-auto">
+                      <input type="checkbox">
+                      </span></td>
+                </tr>
+                <tr>
+                  <th scope="row">UML for dummies....</th>
+                  <td>7/May/2017</td>
+                  <td>Libro</td>
+                  <td>Pendiente</td>
+                  <td>Ninguna</td>
+                  <td><span class="mx-auto">
+                      <input type="checkbox">
+                      </span></td>
+                </tr>
+              </tbody>
+        </table>
+        <div class="col-xs-16 col-sm-8 col-sm-offset-2">
+             <div class="col-xs-6 text-left"><h2>Multa total: </h2></div>
+             <div class="col-xs-6 text-right"><h2>$20</h2></div>
+            </div>
+        </div>
+		<br>
+        <div class="col-xs-16 col-sm-8 col-sm-offset-2">
+             <div class="text-center">
+                 <a href="GeneracionMultExt.html" class="btn btn-primary text-center">Generar Multa</a>
+             </div>
+            </div>
+        <br><br><br>
+        <div class="col-xs-16 col-sm-8 col-sm-offset-2">
+             <div class="text-center">
+                <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Devolver</button>
+				</div>
+				</div>
+				<br>
                     <div class="group-material">
-                         <h2>Devoluciones atrasadas</h2>
-                        <hr>
-                        <a href="devolExt.html" class="btn btn-primary text-center">Devolver libros</a>          
-                    </div>
-                     <div class="group-material">
-                         <h2>Tienes multas pendientes</h2>
-                        <hr>
-                        <a href="ConsultaMultExt.html" class="btn btn-primary text-center">Consultar Multas</a>    
-                         <a href="PagarMultExt.html" class="btn btn-primary text-center">Pagar Multas</a>
-                    </div>
+                        <h2>Multas Pendientes</h2>
+                   </div>
+                   <hr>
+                            <div class="group-material">
+                                <table style="width:100%">
+                                  <tr>
+                                    <th>ID</th>
+                                    <th>Fecha</th> 
+									<th>Monto</th>
+                                    <th>Tipo</th>
+                                    <th>Pago</th>
+                                  </tr>
+                                  <tr>
+                                    <td>XXX</td>
+                                    <td>XXXX</td>
+									<td>$$$</td>
+                                    <td>Maltrato</td>
+                                    <td><input type="radio" name="pagada" value="pagada"></td>
+                                  </tr>
+                                  <tr>
+                                    <td>XXX</td>
+                                    <td>XXXX</td> 
+									<td>$$$</td>
+                                    <td>Devolución Tardía</td>
+                                    <td><input type="radio" name="pagada" value="pagada"></td>
+                                  </tr>
+                                </table>
+                            </div>
+                             <p class="text-center">
+                             	<button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Imprimir</button>
+								<button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Cancelar Multa</button>
+                                <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Registrar Pago</button>
+                            </p>
+                       </div>
 
         </div> 
     </div>
