@@ -98,7 +98,7 @@
               <div class="col-xs-6 ">
                     <div class="page-header">
                         <h2>Nombre de Usuario <small>#####################</small></h2>
-                        <h2>Boleta de Usuario <small> ########################3</small></h2>
+                        <h2>Boleta de Usuario <small> ########################</small></h2>
                     </div>
               </div>
             </div>
@@ -111,11 +111,11 @@
                   <thead>
                     <tr>
                       <th></th>
-                      <th>#</th>
-                      <th>Titulor</th>
+                      <th>ID</th>
+                      <th>Titulo</th>
                       <th>Fecha de Prestamo</th>
                       <th>Observaciones</th>
-                      <th>Estado</th>
+                      <th>Tipo</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -126,16 +126,16 @@
                       <td>Libro1</td>
                       <td>--/--/--</td>
                       <td>xxxxxxxxx</td>
-                      <td>Ninguna</td>
+                      <td>Libro</td>
                       <td></td>
                     </tr>
                     <tr>
                       <td><input type="radio" name="optradio"></td>
                       <td>1232</td>
-                      <td>Libro2</td>
+                      <td>CDROM1</td>
                       <td>--/--/--</td>
                       <td>xxxxxxxxx</td>
-                      <td>Ninguna</td>
+                      <td>CDROM</td>
                       <td></td>
                     </tr>
 
@@ -144,17 +144,27 @@
               </div>
               <p class="text-center">
                   <button type="reset" class="btn btn-danger" style="margin-right: 20px;"><i class="glyphicon glyphicon-remove-signr"></i> &nbsp;&nbsp; Remover</button>
-                  <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i> &nbsp;&nbsp; Modificar</button>
+                  <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i> &nbsp;&nbsp; Modificar Observaciones</button>
               </p>
               <div class="group-material">
 
                     <div class="row">
                       <div class="col-lg-6">
-                        <p>ID Libro: </p>
+                        <p>ID del Material: </p>
                         <div class="input-group">
                          <input type="text" class="form-control" placeholder="Search for...">
+						 <div class="input-group-btn">
+                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tipo Material <span class="caret"></span></button>
+                             <ul class="dropdown-menu dropdown-menu-right">
+                               <li><a href="#">Tipo</a></li>
+                               <li><a href="#">TT</a></li>
+                               <li><a href="#">CD</a></li>
+							   <li role="separator" class="divider"></li>
+                               <li><a href="#">TipoEx</a></li>
+                             </ul>
+                           </div>
                          <span class="input-group-btn">
-                           <button class="btn btn-default" type="button">Registrar Libro</button>
+                           <button class="btn btn-default" type="button">Registrar Material</button>
                          </span>
                        </div><!-- /input-group -->
                      </div><!-- /.col-lg-6 -->
@@ -166,15 +176,7 @@
 				  <a href="preInt.html" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Registrar</a>
               
               </p>
-
             </div>
-
-
-
-
-
-
-
         </div>
     </div>
 </body>
