@@ -104,7 +104,18 @@
                             <div class="group-material">
                                   <input type="radio" name="consu" value="usuario" checked> Usuario<br>
                                   <input type="radio" name="consu" value="folio"> Folio<br>
-                                  <input type="radio" name="consu" value="titulo"> Titulo del libro
+                                  <input type="radio" name="consu" value="titulo"> Titulo del libro<br>
+								  <input type="radio" name="consu" value="titulo"> Escuela
+								  <button type="button" class="btn btn-default dropdown-toggle"
+                                          data-toggle="dropdown">
+                                    Biblioteca <span class="caret"></span>
+                                  </button>
+                                 
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">ejemplo:ESIME</a></li>
+                                    <li><a href="#">ejemplo:ESFM</a></li>
+                                    <li><a href="#">ejemplo:ESIA</a></li>
+                                  </ul>
                             </div>
                             <div class="group-material">
                                 <input type="text" class="material-control tooltips-general" placeholder="Ingrese su consulta" required="" maxlength="70" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}" data-toggle="tooltip" data-placement="top" title="Escribe la consulta">
