@@ -1,0 +1,113 @@
+% Copie este bloque por cada caso de uso:
+%-------------------------------------- COMIENZA descripción del caso de uso.
+
+	\begin{UseCase}{CU02}{Consultar material}{
+	   El usuario deberá ingresar los datos del material a consultar que previamente ha sido registrado en el sistema, posteriormente el sistema mostrará una tabla con la información del material en cuestión.
+	}
+		\UCitem{Versión}{1}
+		\UCitem{Actor}{Usuario}
+		\UCitem{Propósito}{Mostrar al usuario la información del material que desee consultar.}
+		\UCitem{Entradas}{
+		\begin{itemize}
+		   \item ISBN del Libro
+		   \item Número de TT 
+		   \item ID Audiovisual
+		   \item Titulo del material audiovisual
+		   \item Número de computadora
+		\end{itemize}				
+		}
+		\UCitem{Salidas}{
+		\begin{itemize}
+			\item ISBN	
+			\item Titulo	
+			\item Autor(es)	
+			\item Editorial	
+			\item Fecha de Publicación	
+			\item Numero de Páginas	
+			\item Existencias	
+			\item Edición	
+			\item Precio	
+			\item Existencias
+
+			\item Número de TT	
+			\item Titulo	
+			\item Autor(es)	
+			\item Fecha de Presentación	
+			\item Director(es)
+
+			\item ID	
+			\item Titulo	
+			\item Autor(es)	
+			\item Fecha de Publicacion	
+			\item Duracion	
+			\item Existencias	
+			\item Precio	
+			\item Tipo
+
+			\item Numero de serie monitor 
+			\item Precio monitor
+			\item Numero de serie CPU
+			\item Numero de serie teclado
+			\item Precio teclado
+			\item Numero de serie Mouse
+			\item Precio Mouse						
+	
+		\end{itemize}				
+		}
+		\UCitem{Precondiciones}{ 
+			\begin{itemize}
+				\item El material a consultar debe haber sido registrado previamente
+			\end{itemize}
+		}
+		\UCitem{Postcondiciones}{
+		\begin{itemize}
+		\item Pendiente
+		\end{itemize}				
+		}
+		\UCitem{Autor(es)}{
+		\begin{itemize}
+		 \item Cortes Frias Diego Antonio
+		\end{itemize}		 		 
+		}
+
+	\end{UseCase}
+		%-------------------------------------- COMIENZA descripción Trayectoria Principal
+	\begin{UCtrayectoria}{Principal}
+	\UCpaso[\UCactor] Ingresa al sistema mediante el enlace a la aplicacion web
+	 \UCpaso[\UCactor] Selecciona la intefaz \IUref{UI2.8}{Modificar o eliminar}
+	  \UCpaso[\UCactor] Selecciona el tipo de material (Libro, TT, Audiovisual o Equipo de cómputo).
+	 \UCpaso[\UCsist]Muestra la interfaz \IUref{UI2.9}{Consultar catálogo del libro}, en el caso de elegir Libro, la interfaz \IUref{UI2.10}{Consultar catálogo de TT} en caso de elegir TT, la interfaz \IUref{UI2.11}{Consultar catálogo de equipo audiovisual} en caso de elegir audiovisual o \IUref{UI2.12}{Consultar catálogo de equipo de cómputo}, en caso de elegir equipo de cómputo
+	  \UCpaso[\UCactor] ingresa los datos correspondientes
+	  \UCpaso[\UCactor] Da click en consultar
+	   \UCpaso[\UCsist] Verifica la  \BRref{RN42}{Campos sin llenar}.[Trayectoria A]
+	    \UCpaso[\UCsist] Verifica la \BRref{RN39}{Material no registrado}.[Trayectoria B]
+	    \UCpaso[\UCsist] Muestra la información del material correspondiente.
+
+
+	\end{UCtrayectoria}
+			%-------------------------------------- COMIENZA descripción Trayectoria Alternativa.
+		\begin{UCtrayectoriaA}{A}{Campos sin llenar}
+			\UCpaso[\UCsist] Enviara el  mensaje en pantalla \MSGref{MSJ1.2}{Datos incompletos. Favor de completar todos los campos de entrada marcados con un *}
+			\UCpaso[\UCsist] Regresa al paso 5 de la trayectoria principal conservando los datos de los campos que si fueron llenados con algún valor.
+		\end{UCtrayectoriaA}
+		
+		
+		\begin{UCtrayectoriaA}{B}{Material no registrado}
+			\UCpaso[\UCsist] Enviara el mensaje en pantalla \MSGref{MSJ1.3}{El material a consultar no está registrado}
+			\UCpaso[\UCsist] Regresa al paso 5 de la trayectoria principal	
+		\end{UCtrayectoriaA}	
+		
+		
+		
+		\begin{UCtrayectoriaA}{G}{Los datos no coinciden}
+			\UCpaso[\UCsist] Enviará el mensaje  \MSGref{MSG06}{Los datos ingresados en CURP no son correctos}
+			\UCpaso[\UCsist] Se regresará al paso 4 de la trayectoria principal conservando todos los datos a excepción de la CURP.
+
+		\end{UCtrayectoriaA}
+		
+		
+		
+		
+		
+		
+%-------------------------------------- TERMINA descripción del caso de uso.
